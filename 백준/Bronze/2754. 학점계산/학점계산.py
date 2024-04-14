@@ -1,5 +1,4 @@
-# 성적과 평점 매핑
-grades = {
+grade = {
     'A+': 4.3, 'A0': 4.0, 'A-': 3.7,
     'B+': 3.3, 'B0': 3.0, 'B-': 2.7,
     'C+': 2.3, 'C0': 2.0, 'C-': 1.7,
@@ -7,8 +6,6 @@ grades = {
     'F': 0.0
 }
 
-# 사용자로부터 성적 입력 받기
-input_grade = input()
+score = input()
 
-# 평점 출력
-print(grades.get(input_grade))
+print(grade.get(score))
