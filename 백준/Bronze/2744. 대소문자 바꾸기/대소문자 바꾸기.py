@@ -1,3 +1,3 @@
 a = str(input())
-result = a.swapcase()
-print(result)
+
+print(a.swapcase())
