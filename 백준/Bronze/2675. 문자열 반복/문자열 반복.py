@@ -3,8 +3,9 @@ t = int(input())
 for _ in range(t):
     r, s = input().split()
     r = int(r)
-    s = str(s)
-    for i in range(len(s)):
-        print(s[i]*r, end="")
-    print("")
+    p = ''
 
+    for i in s:
+        p += i*r
+    
+    print(p)
