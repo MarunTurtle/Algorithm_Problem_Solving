@@ -1,12 +1,8 @@
-# Input
-A = int(input())
-B = int(input())
-C = int(input())
+a = int(input())
+b = int(input())
+c = int(input())
 
-# Product of A, B, C
-product = A * B * C
-P = list(str(product))  # Convert product to string, then to list of its characters
+product = str(a*b*c)
 
-# Count numbers of 0-9
 for i in range(10):
-    print(P.count(str(i)))  # Convert i to string before counting
+    print(product.count(str(i)))
