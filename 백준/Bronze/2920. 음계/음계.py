@@ -1,8 +1,8 @@
-sequence = list(map(int, input().split()))
+notes = list(map(int, input().split()))
 
-if sequence == sorted(sequence):
-    print("ascending")
-elif sequence == sorted(sequence, reverse = True):
-    print("descending")
+if sorted(notes) == notes:
+    print('ascending')
+elif sorted(notes, reverse=True) == notes:
+    print('descending')
 else:
-    print("mixed")
+    print('mixed')
