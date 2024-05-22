@@ -1,8 +1,7 @@
 import Foundation
 
-let input = readLine()!.split(separator: " ").map { $0 }
-let (s1, a) = (input[0], Int(input[1])!)
-
-for i in 0..<a {
-    print(s1, terminator: "")
+let inp = readLine()!.split(separator: " ")
+let (str, n) = (String(inp[0]), Int(inp[1])!)
+for _ in 0..<n {
+    print(str, terminator: "")
 }
