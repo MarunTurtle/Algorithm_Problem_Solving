@@ -1,4 +1,5 @@
 import Foundation
 
 let n = readLine()!.split(separator: " ").map { Int($0)! }
-print("a = \(n[0])\nb = \(n[1])")
+let (a, b) = (n[0], n[1])
+print("a = \(a)\nb = \(b)")
