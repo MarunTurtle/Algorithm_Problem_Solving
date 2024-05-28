@@ -1,6 +1,4 @@
 import Foundation
 
-let n = readLine()!.split(separator: " ").map { Int($0)! }
-let (a, b) = (n[0], n[1])
-
-print("\(a) + \(b) = \(a+b)")
+let inp = readLine()!.split(separator: " ").map { Int(String($0))! }
+print("\(inp[0]) + \(inp[1]) = \(inp[0] + inp[1])")
