@@ -1,8 +1,3 @@
 import Foundation
 
-let inp = readLine()!
-
-for char in inp {
-    var result = char == char.uppercased ? char.lowercased : char.uppercased
-    print(result, terminator: "")
-}
+print(readLine()!.map { $0.isLowercase ? $0.uppercased() : $0.lowercased() }.joined())
