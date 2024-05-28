@@ -1,9 +1,8 @@
 import Foundation
 
-if let input = readLine() {
-    let transformed = input.map { character in
-        character.isLowercase ? character.uppercased() : character.lowercased()
-    }.joined()
-    
-    print(transformed)
+let inp = readLine()!
+
+for char in inp {
+    var result = char == char.uppercased ? char.lowercased : char.uppercased
+    print(result, terminator: "")
 }
