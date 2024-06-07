@@ -1,6 +1,12 @@
-a, b = map(str, input().split())
+def greatest_num(a, b):
+    new_a = int(''.join(reversed(a)))
+    new_b = int(''.join(reversed(b)))
+    return max(new_a, new_b)
 
-new_a = int(''.join(reversed(a)))
-new_b = int(''.join(reversed(b)))
+def main():
+    a, b = map(list, input().split())
+    result = greatest_num(a, b)
+    print(result)
 
-print(max(new_a, new_b))
+if __name__ == "__main__":
+    main()
