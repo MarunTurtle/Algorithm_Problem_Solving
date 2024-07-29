@@ -8,6 +8,6 @@ public class Solution {
         
         int sum = a + b;
         
-        System.out.printf(a + " + " + b + " = " + sum);
+        System.out.printf("%d + %d = %d", a, b, sum);
     }
 }
