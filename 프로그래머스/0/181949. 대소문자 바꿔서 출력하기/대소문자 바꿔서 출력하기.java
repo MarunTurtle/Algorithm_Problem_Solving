@@ -8,14 +8,12 @@ public class Solution {
         
         for (int i = 0; i < str.length(); i++) {
             char ch = str.charAt(i);
-            int strInt = (int) ch;
-            if (strInt < 97) {
-                strInt += 32;
+            if (Character.isLowerCase(ch)) {
+                newStr.append(Character.toUpperCase(ch));
             } else {
-                strInt -= 32;
+                newStr.append(Character.toLowerCase(ch));
             }
-            newStr.append((char) strInt);
         }
-        System.out.print(newStr);
+        System.out.print(newStr.toString());
     }
 }
