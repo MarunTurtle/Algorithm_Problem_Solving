@@ -1,2 +1,2 @@
-# techinterview
-Baekjoon, Programmers, Leetcode
+# Algorithm Problem Solving
+SWEA, Baekjoon, Programmers, Leetcode
