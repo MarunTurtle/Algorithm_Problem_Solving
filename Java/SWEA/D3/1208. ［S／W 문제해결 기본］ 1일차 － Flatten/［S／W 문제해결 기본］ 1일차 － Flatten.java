@@ -62,3 +62,40 @@ class Solution {
         }
     }
 }
+
+// import java.util.Scanner;
+// import java.util.Arrays;
+
+// class Solution {
+//     public static void main(String args[]) {
+//         Scanner sc = new Scanner(System.in);
+//         int T = 10;
+
+//         for (int t = 1; t <= T; t++) {
+//             // Get dump limitation
+//             int dumpLimit = sc.nextInt();
+            
+//             // Get number of boxes
+//             int[] boxes = new int[100];
+//             for (int i = 0; i < 100; i++) {
+//                 boxes[i] = sc.nextInt();
+//             }
+            
+//             for (int l = 0; l < dumpLimit; l++) {
+//                 // Sort the boxes
+//                 Arrays.sort(boxes);
+
+//                 // Dump: Subtract 1 from the last index & Add 1 to the first index
+//                 boxes[0]++;
+//                 boxes[99]--;
+//             }
+
+//             // Sort boxes one last time to find the final difference
+//             Arrays.sort(boxes);
+//             int result = boxes[99] - boxes[0];
+            
+//             System.out.printf("#%d %d\n", t, result);
+//         }
+//         sc.close();
+//     }
+// }
