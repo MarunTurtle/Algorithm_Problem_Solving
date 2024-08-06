@@ -12,7 +12,7 @@ class Solution {
             }
         }
 
-        return Integer.parseInt(OddString) + Integer.parseInt(EvenString);
+        return Integer.valueOf(OddString) + Integer.valueOf(EvenString);
 
     }
 }
