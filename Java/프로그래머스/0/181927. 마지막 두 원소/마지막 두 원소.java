@@ -19,3 +19,32 @@ class Solution {
         return newArr;
     }
 }
+
+// import java.util.ArrayList;
+
+// public class Solution {
+//     public int[] solution(int[] num_list) {
+//         // Convert the array to an ArrayList
+//         ArrayList<Integer> list = new ArrayList<>();
+//         for (int num : num_list) {
+//             list.add(num);
+//         }
+        
+//         int last = list.get(list.size() - 1);
+//         int secondLast = list.get(list.size() - 2);
+        
+//         if (last > secondLast) {
+//             list.add(last - secondLast);
+//         } else {
+//             list.add(last * 2);
+//         }
+        
+//         // Convert the ArrayList back to an array
+//         int[] result = new int[list.size()];
+//         for (int i = 0; i < list.size(); i++) {
+//             result[i] = list.get(i);
+//         }
+        
+//         return result;
+//     }
+// }
