@@ -1,102 +1,109 @@
-import java.util.Stack;
 import java.util.Scanner;
+import java.util.Stack;
 
 public class Solution {
-    // 연산자 우선순위를 반환하는 함수
-    public static int precedence(char ch) {
-        switch (ch) {
-            case '+':
-                return 1;
-            case '*':
-                return 2;
-        }
-        return -1;
-    }
-
-    // 중위 표기식을 후위 표기식으로 변환하는 함수
-    public static String infixToPostfix(String expression) {
-        StringBuilder result = new StringBuilder();
-        Stack<Character> stack = new Stack<>();
-        
-        for (int i = 0; i < expression.length(); i++) {
-            char c = expression.charAt(i);
-            
-            // 피연산자일 경우 결과에 추가
-            if (Character.isDigit(c)) {
-                result.append(c);
-            } 
-            // '('를 스택에 추가
-            else if (c == '(') {
-                stack.push(c);
-            } 
-            // ')'를 만나면 '('를 만날 때까지 스택에서 팝
-            else if (c == ')') {
-                while (!stack.isEmpty() && stack.peek() != '(') {
-                    result.append(stack.pop());
-                }
-                stack.pop();
-            } 
-            // 연산자일 경우
-            else {
-                while (!stack.isEmpty() && precedence(c) <= precedence(stack.peek())) {
-                    result.append(stack.pop());
-                }
-                stack.push(c);
-            }
-        }
-        
-        // 스택에 남아있는 모든 연산자를 결과에 추가
-        while (!stack.isEmpty()) {
-            result.append(stack.pop());
-        }
-        
-        return result.toString();
-    }
-
-    // 후위 표기식을 계산하는 함수
-    public static int evaluatePostfix(String expression) {
-        Stack<Integer> stack = new Stack<>();
-        
-        for (int i = 0; i < expression.length(); i++) {
-            char c = expression.charAt(i);
-            
-            // 피연산자일 경우 스택에 추가
-            if (Character.isDigit(c)) {
-                stack.push(c - '0');
-            } 
-            // 연산자일 경우 스택에서 두 숫자를 꺼내 계산 후 결과를 다시 스택에 추가
-            else {
-                int val1 = stack.pop();
-                int val2 = stack.pop();
-                
-                switch (c) {
-                    case '+':
-                        stack.push(val2 + val1);
-                        break;
-                    case '*':
-                        stack.push(val2 * val1);
-                        break;
-                }
-            }
-        }
-        
-        // 최종 결과를 반환
-        return stack.pop();
-    }
 
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
-        
-        for (int t = 1; t <= 10; t++) {
-            int length = scanner.nextInt();
-            String expression = scanner.next();
-            
-            String postfix = infixToPostfix(expression);
-            int result = evaluatePostfix(postfix);
-            
-            System.out.println("#" + t + " " + result);
+
+        // 10개의 테스트 케이스를 순회
+        for (int caseNum = 1; caseNum <= 10; caseNum++) {
+            int length = scanner.nextInt(); // 식의 길이를 읽음
+            String infixExpr = scanner.next(); // 중위 표기식을 읽음
+
+            // 중위 표기식을 후위 표기식으로 변환
+            String postfixExpr = convertToPostfix(infixExpr, length);
+            // 후위 표기식을 평가
+            int result = evaluatePostfix(postfixExpr, length);
+
+            // 결과를 출력
+            System.out.println("#" + caseNum + " " + result);
         }
-        
+
         scanner.close();
+    }
+
+    // 중위 표기식을 후위 표기식으로 변환하는 함수
+    public static String convertToPostfix(String infix, int length) {
+        StringBuilder postfix = new StringBuilder();
+        Stack<Character> stack = new Stack<>();
+        
+        // 스택 초기 용량 설정
+        stack.ensureCapacity(length);
+
+        for (int i = 0; i < infix.length(); i++) {
+            char currChar = infix.charAt(i);
+
+            // 문자가 숫자인 경우 결과에 추가
+            if (Character.isDigit(currChar)) {
+                postfix.append(currChar);
+            }
+            // 문자가 '('인 경우 스택에 푸시
+            else if (currChar == '(') {
+                stack.push(currChar);
+            }
+            // 문자가 ')'인 경우 '('를 만날 때까지 팝하여 결과에 추가
+            else if (currChar == ')') {
+                while (!stack.isEmpty() && stack.peek() != '(') {
+                    postfix.append(stack.pop());
+                }
+                stack.pop(); // 스택에서 '(' 제거
+            }
+            // 연산자를 만난 경우
+            else if (currChar == '+' || currChar == '*') {
+                while (!stack.isEmpty() && getPriority(currChar) <= getPriority(stack.peek())) {
+                    postfix.append(stack.pop());
+                }
+                stack.push(currChar);
+            }
+        }
+
+        // 스택의 모든 연산자를 팝하여 결과에 추가
+        while (!stack.isEmpty()) {
+            postfix.append(stack.pop());
+        }
+
+        return postfix.toString();
+    }
+
+    // 후위 표기식을 평가하는 함수
+    public static int evaluatePostfix(String postfix, int length) {
+        Stack<Integer> stack = new Stack<>();
+        
+        // 스택 초기 용량 설정
+        stack.ensureCapacity(length);
+
+        for (int i = 0; i < postfix.length(); i++) {
+            char currChar = postfix.charAt(i);
+
+            // 문자가 숫자인 경우 스택에 푸시
+            if (Character.isDigit(currChar)) {
+                stack.push(currChar - '0');
+            }
+            // 문자가 연산자인 경우 두 요소를 팝하여 연산 적용
+            else if (currChar == '+' || currChar == '*') {
+                int num1 = stack.pop();
+                int num2 = stack.pop();
+
+                if (currChar == '+') {
+                    stack.push(num2 + num1);
+                } else if (currChar == '*') {
+                    stack.push(num2 * num1);
+                }
+            }
+        }
+
+        // 최종 결과는 스택의 유일한 요소
+        return stack.pop();
+    }
+
+    // 연산자의 우선순위를 반환하는 함수
+    public static int getPriority(char oper) {
+        if (oper == '+') {
+            return 1;
+        } else if (oper == '*') {
+            return 2;
+        }
+        return -1;
     }
 }
