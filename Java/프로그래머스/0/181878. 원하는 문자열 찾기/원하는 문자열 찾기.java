@@ -6,10 +6,6 @@ class Solution {
         pat = pat.toLowerCase();    
         
         // Check if myString contains the pattern
-        if (myString.contains(pat)) {
-            return 1;
-        } else {
-            return 0;
-        }
+        return (myString.contains(pat)) ? 1 : 0;
     }
 }
