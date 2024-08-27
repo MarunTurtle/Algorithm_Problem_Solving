@@ -7,7 +7,7 @@ class Solution {
         int length = my_string.length();
         
         // Add the substring to the answer
-        answer.append(my_string.substring(length - n, length)); 
+        answer.append(my_string.substring(length - n)); 
         
         // Return the answer
         return answer.toString();
