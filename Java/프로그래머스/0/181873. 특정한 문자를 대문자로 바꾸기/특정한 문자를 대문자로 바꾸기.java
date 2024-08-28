@@ -7,11 +7,15 @@ class Solution {
         // Declare Length
         int length = my_string.length();
         
+        // Convert the single-character string 'alp' to a char
+        char targetChar = alp.charAt(0);
+        
         // Iterate through my_string
         for (int i = 0; i < length; i++) {
-            Character curChar = my_string.charAt(i);
+            char curChar = my_string.charAt(i);
             
-            if (curChar.equals(alp.charAt(0))) {
+            // Check if the current character matches the target character
+            if (curChar == targetChar) {
                 result.append(Character.toUpperCase(curChar));               
             } else {
                 result.append(curChar);
