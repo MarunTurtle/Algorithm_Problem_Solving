@@ -5,7 +5,7 @@ class Solution {
         
         for (int i = 0; i < myString.length() - pat.length() + 1; i++) {
             String subString = myString.substring(i, i + pat.length());
-            if (subString.startsWith(pat)) count++;    
+            if (subString.equals(pat)) count++;    
         }
         
         return count;
