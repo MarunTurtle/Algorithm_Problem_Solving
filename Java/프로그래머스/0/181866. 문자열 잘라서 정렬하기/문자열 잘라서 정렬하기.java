@@ -4,16 +4,17 @@ import java.util.stream.Collectors;
 
 class Solution {
     public String[] solution(String myString) {
-        // "x"를 기준으로 문자열을 나눔
+        // Split the string using "x" as the delimiter
         String[] parts = myString.split("x");
         
-        // 빈 문자열을 제외하고, 나머지를 리스트로 필터링한 후 정렬
+        // Filter out empty strings, sort the remaining strings lexicographically,
+        // and collect them into a list
         List<String> filteredAndSorted = Arrays.stream(parts)
-                                               .filter(s -> !s.isEmpty())  // 빈 문자열 제거
-                                               .sorted()                   // 사전순으로 정렬
+                                               .filter(s -> !s.isEmpty())  // Remove empty strings
+                                               .sorted()                   // Sort lexicographically
                                                .collect(Collectors.toList());
         
-        // 리스트를 배열로 변환하여 반환
+        // Convert the list back to an array and return it
         return filteredAndSorted.toArray(new String[0]);
     }
 }
