@@ -4,7 +4,7 @@ class Solution {
     public int[] solution(int[] arr) {
         
         // Declare stk as a Deque (double-ended queue)
-        Deque<Integer> stk = new LinkedList<>();        
+        Deque<Integer> stk = new ArrayDeque<>();        
         
         // Iterate through elements in arr
         for (int i = 0; i < arr.length; i++) {
