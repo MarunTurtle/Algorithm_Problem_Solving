@@ -1,6 +1,5 @@
-import java.util.LinkedList;
-import java.util.Queue;
 import java.util.Scanner;
+import java.util.ArrayDeque;
 
 class Solution {
     // 치즈 한 변의 길이 N
@@ -40,7 +39,7 @@ class Solution {
                 for (int i = 0; i < N; i++) {
                     for (int j = 0; j < N; j++) {
                         if (cheese[i][j] <= day) {
-                            cheese[i][j] = 0; // 맛있는 정도가 현재 날짜 이하인 칸은 갉아먹음
+                            cheese[i][j] = 0; // 맛있는 정도가 현재 날짜 이하인 칸은 갉아먹힘
                         }
                     }
                 }
@@ -70,7 +69,7 @@ class Solution {
     // BFS를 사용하여 치즈 덩어리를 탐색
     static void bfs(int x, int y) {
         // 큐를 생성하여 시작 위치를 추가
-        Queue<int[]> queue = new LinkedList<>();
+        ArrayDeque<int[]> queue = new ArrayDeque<>();
         queue.add(new int[]{x, y});
         visited[x][y] = true; // 시작 위치를 방문했다고 표시
 
