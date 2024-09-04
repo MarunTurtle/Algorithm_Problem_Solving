@@ -1,10 +1,13 @@
-import java.util.Scanner;
+import java.util.*;
 
 public class Solution {
-    public static void main(String[] args) {
+    public static void main (String[] args) {
+        
         Scanner sc = new Scanner(System.in);
-        int n = sc.nextInt();
-        String result = (n % 2 == 0) ? String.format("%d is even", n) : String.format("%d is odd", n);
-        System.out.print(result);
+        
+        int a = sc.nextInt();
+        
+        System.out.println(a + " is " + ((a % 2 == 0) ? "even" : "odd"));
+        
     }
 }
