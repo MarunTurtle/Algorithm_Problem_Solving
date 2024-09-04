@@ -1,10 +1,15 @@
-import java.util.Scanner;
+import java.util.*;
 
 public class Solution {
-    public static void main(String[] args) {
+    public static void main (String[] args) {
+        
         Scanner sc = new Scanner(System.in);
-        String word = sc.next();
-        for (char ch : word.toCharArray())
-            System.out.println(ch);
-        }       
+        String str = sc.next();
+        
+        // Convert string to a char array and iterate
+        for (char c : str.toCharArray()) {
+            System.out.println(c);
+        }
+        
+    }
 }
