@@ -1,9 +1,11 @@
-public class Solution {
-    public static String solution(String my_string, String overwrite_string, int s) {
-        StringBuilder sb = new StringBuilder(my_string);
+class Solution {
+    public String solution(String my_string, String overwrite_string, int s) {
         
-        sb.replace(s, s+overwrite_string.length(), overwrite_string);
+        StringBuilder nStr = new StringBuilder(my_string);
         
-        return sb.toString();
+        nStr.replace(s, s+overwrite_string.length(), overwrite_string);
+        
+        return nStr.toString();
+        
     }
 }
