@@ -1,21 +1,21 @@
-import java.util.Scanner;
+import java.util.*;
 
 public class Solution {
-    public static void main(String[] args) {
+    public static void main (String[] args) {
+        
+        StringBuilder nstr = new StringBuilder();
+        
         Scanner sc = new Scanner(System.in);
         String str = sc.next();
-        StringBuilder newStr = new StringBuilder();
         
         for (int i = 0; i < str.length(); i++) {
-            Character ch = str.charAt(i);
-            if (Character.isLowerCase(ch)) {
-                newStr.append(Character.toUpperCase(ch));
+            if (Character.isUpperCase(str.charAt(i))) {
+                nstr.append(Character.toLowerCase(str.charAt(i)));
             } else {
-                newStr.append(Character.toLowerCase(ch));
+                nstr.append(Character.toUpperCase(str.charAt(i)));
             }
         }
         
-        System.out.print(newStr.toString());
-        
+        System.out.println(nstr.toString());
     }
 }
