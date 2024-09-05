@@ -1,11 +1,12 @@
-class Solution {
-    public String solution(String my_string, String overwrite_string, int s) {
+public class Solution {
+    public String solution (String my_string, String overwrite_string, int s) {
         
-        StringBuilder nStr = new StringBuilder(my_string);
+        StringBuilder sb = new StringBuilder(my_string);
         
-        nStr.replace(s, s+overwrite_string.length(), overwrite_string);
+        int len = overwrite_string.length();
         
-        return nStr.toString();
+        sb.replace(s, s+len, overwrite_string);
         
+        return sb.toString();
     }
 }
