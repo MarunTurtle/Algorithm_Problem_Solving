@@ -2,11 +2,11 @@ import java.util.*;
 
 public class Solution {
     public int solution (int a, int b) {
+     
+        int m = Integer.parseInt("" + a + b);
+        int n = Integer.parseInt("" + b + a);
         
-        int n = Integer.parseInt("" + a + b);
-        int m = Integer.parseInt("" + b + a);
-        
-        return Math.max(n, m);
+        return m > n ? m : n; 
         
     }
 }
