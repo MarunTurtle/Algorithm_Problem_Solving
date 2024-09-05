@@ -5,8 +5,12 @@ public class Solution {
         
         Scanner sc = new Scanner(System.in);
         String str = sc.next();
-        for (char c : str.toCharArray()) {
-            System.out.println(c);
+        int len = str.length();
+        
+        for (int i = 0; i < len; i++) {
+            System.out.println(str.charAt(i));
         }
+        // for (char c : str.toCharArray()) {
+        //     System.out.println(c);
     }
 }
