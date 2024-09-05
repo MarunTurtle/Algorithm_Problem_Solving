@@ -1,29 +1,12 @@
 class Solution {
-    public int solution(int n) {
-        // Better solution
-        int ans = 0;
-
-        for(int i = n; i >= 0; i -= 2)
-            ans += (n % 2 == 0) ? i * i : i;
-
-        return ans;
+    public int solution (int n) {
         
-        // My initial solution
-//         //declare result
-//         int result = 0;
+        int isEven = (n % 2 == 0) ? 1 : 0;
+        int result = 0;
         
-//         // switch operator
-//         switch (n % 2) {
-//             // odd case
-//             case 1 :
-//                 for (int i = 1; i <= n; i += 2) { result += i; }         
-//                 break;
-                
-//             // even case     
-//             case 0 :
-//                 for (int i = 0; i <= n; i += 2) { result += i*i; }                        
-//                 break;
-//         }
-//         return result;
+        for (int i = isEven + 1; i <= n; i+=2) {
+            result += (isEven == 1) ? i * i : i;
+        }     
+        return result;
     }
 }
