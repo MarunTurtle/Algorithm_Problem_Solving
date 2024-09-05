@@ -5,11 +5,10 @@ public class Solution {
         
         Scanner sc = new Scanner(System.in);
         String str = sc.next();
+        int len = str.length();
         
-        // Convert string to a char array and iterate
-        for (char c : str.toCharArray()) {
-            System.out.println(c);
+        for (int i = 0; i < len; i++) {
+            System.out.println(str.charAt(i));
         }
-        
     }
 }
