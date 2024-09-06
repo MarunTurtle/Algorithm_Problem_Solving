@@ -5,18 +5,15 @@ public class Solution {
         
         Scanner sc = new Scanner(System.in);
         String str = sc.next();
-        int len = str.length();
-    
         StringBuilder sb = new StringBuilder();
         
-        for (int i = 0; i < len; i++) {
-            if (Character.isUpperCase(str.charAt(i))) {
-                sb.append(Character.toLowerCase(str.charAt(i)));
+        for (char c : str.toCharArray()) {
+            if (Character.isUpperCase(c)) {
+                sb.append(Character.toLowerCase(c));
             } else {
-                sb.append(Character.toUpperCase(str.charAt(i))); 
+                sb.append(Character.toUpperCase(c));
             }
         }
-        
         System.out.print(sb.toString());
     }
-}     
+}
