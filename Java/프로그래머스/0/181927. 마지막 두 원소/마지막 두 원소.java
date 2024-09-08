@@ -1,24 +1,24 @@
-class Solution {
-    public int[] solution(int[] num_list) {
+// class Solution {
+//     public int[] solution(int[] num_list) {
         
-        int last_idx = num_list.length;
-        int last = num_list[last_idx-1];
-        int secondLast = num_list[last_idx-2];
+//         int last_idx = num_list.length;
+//         int last = num_list[last_idx-1];
+//         int secondLast = num_list[last_idx-2];
 
-        int newNum;
-        if (last > secondLast) {
-            newNum = last - secondLast;
-        } else {
-            newNum = last * 2;
-        }
+//         int newNum;
+//         if (last > secondLast) {
+//             newNum = last - secondLast;
+//         } else {
+//             newNum = last * 2;
+//         }
 
-        int[] newArr = new int[last_idx + 1];
-        System.arraycopy(num_list, 0, newArr, 0, num_list.length);
-        newArr[last_idx] = newNum;
+//         int[] newArr = new int[last_idx + 1];
+//         System.arraycopy(num_list, 0, newArr, 0, num_list.length);
+//         newArr[last_idx] = newNum;
 
-        return newArr;
-    }
-}
+//         return newArr;
+//     }
+// }
 
 // import java.util.ArrayList;
 
@@ -48,3 +48,32 @@ class Solution {
 //         return result;
 //     }
 // }
+
+public class Solution {
+    public int[] solution (int[] num_list) {
+       
+        int len = num_list.length; 
+        
+        int[] new_list = new int[len+1];
+        
+        int last = num_list[len-1];
+        
+        int seclast = num_list[len-2];
+        
+        int new_last = 0;
+        
+        for (int i = 0; i < len; i++) {
+            new_list[i] = num_list[i];
+        }
+        
+        if (last > seclast) {
+            new_last = last - seclast;
+        } else {
+            new_last = last * 2;
+        }
+        
+        new_list[len] = new_last;
+        
+        return new_list;
+    }
+}
