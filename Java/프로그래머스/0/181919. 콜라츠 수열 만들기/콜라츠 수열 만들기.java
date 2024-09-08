@@ -1,12 +1,38 @@
-import java.util.ArrayList;
+// import java.util.ArrayList;
+
+// class Solution {
+//     public int[] solution(int n) {
+//         ArrayList<Integer> collatz = new ArrayList<>();
+//         runCollatz(n, collatz);
+//         return collatz.stream().mapToInt(i -> i).toArray();
+//     }
+
+//     private void runCollatz(int n, ArrayList<Integer> collatz) {
+//         while (n != 1) {
+//             collatz.add(n);
+//             if (n % 2 == 0) {
+//                 n /= 2;
+//             } else {
+//                 n = 3 * n + 1;
+//             }
+//         }
+//         collatz.add(1); // add the final 1 to the sequence
+//     }
+// }
+
+import java.util.*;
 
 class Solution {
-    public int[] solution(int n) {
+    public int[] solution (int n) {
+        
         ArrayList<Integer> collatz = new ArrayList<>();
+            
         runCollatz(n, collatz);
+            
         return collatz.stream().mapToInt(i -> i).toArray();
+        
     }
-
+    
     private void runCollatz(int n, ArrayList<Integer> collatz) {
         while (n != 1) {
             collatz.add(n);
@@ -16,9 +42,24 @@ class Solution {
                 n = 3 * n + 1;
             }
         }
-        collatz.add(1); // add the final 1 to the sequence
+        collatz.add(1);
     }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 // import java.util.LinkedList; // Import LinkedList to use it as a Queue
 // import java.util.Queue; // Import Queue interface
@@ -48,3 +89,13 @@ class Solution {
 //         return answer.stream().mapToInt(i -> i).toArray();
 //     }
 // }
+
+
+
+
+
+
+
+
+
+
