@@ -1,34 +1,34 @@
-import java.util.ArrayList;
+// import java.util.ArrayList;
 
-class Solution {
-    public ArrayList<Integer> solution(int[] arr, int[][] queries) {
-        ArrayList<Integer> result = new ArrayList<>();
+// class Solution {
+//     public ArrayList<Integer> solution(int[] arr, int[][] queries) {
+//         ArrayList<Integer> result = new ArrayList<>();
 
-        for (int[] set : queries) {
-            int s = set[0];
-            int e = set[1];
-            int k = set[2];
+//         for (int[] set : queries) {
+//             int s = set[0];
+//             int e = set[1];
+//             int k = set[2];
 
-            int minVal = Integer.MAX_VALUE;
-            boolean found = false;
+//             int minVal = Integer.MAX_VALUE;
+//             boolean found = false;
 
-            for (int i = s; i <= e; i++) {
-                if (arr[i] > k && arr[i] < minVal) {
-                    minVal = arr[i];
-                    found = true;
-                }
-            }
+//             for (int i = s; i <= e; i++) {
+//                 if (arr[i] > k && arr[i] < minVal) {
+//                     minVal = arr[i];
+//                     found = true;
+//                 }
+//             }
 
-            if (found) {
-                result.add(minVal);
-            } else {
-                result.add(-1);
-            }
-        }
+//             if (found) {
+//                 result.add(minVal);
+//             } else {
+//                 result.add(-1);
+//             }
+//         }
 
-        return result;
-    }
-}
+//         return result;
+//     }
+// }
 
 
 // import java.util.Arrays;
@@ -54,3 +54,29 @@ class Solution {
 //         return answer;
 //     }
 // }
+
+import java.util.*;
+
+class Solution {
+    public int[] solution (int[] arr, int[][] queries) {
+        
+        int[] result = new int[queries.length]; 
+        
+        for (int j = 0; j < queries.length; j++) {
+            
+            int min = Integer.MAX_VALUE;
+            
+            for (int i = queries[j][0]; i <= queries[j][1]; i++) {
+                if (arr[i] > queries[j][2] && arr[i] < min) {
+                    min = arr[i];
+                }
+            }
+            if (min == Integer.MAX_VALUE) {
+                result[j] = -1;   
+            } else {
+                result[j] = min;    
+            }
+        }
+        return result;
+    }
+}
