@@ -57,26 +57,46 @@
 // }
 
 
-import java.util.ArrayList;
+import java.util.*;
 
-class Solution {
-    public int[] solution(int l, int r) {
+// public class Solution {
+//     public int[] solution (int l, int r) {
+        
+//         ArrayList<Integer> list = new ArrayList<>();
+        
+//         for (int i = 1; i < 64; i++) {
+            
+//             int num = Integer.parseInt(Integer.toBinaryString(i)) * 5;
+            
+//             if (l <= num && num <= r) list.add(num);
 
+//         }
+        
+//         return list.isEmpty() ? new int[] {-1} : list.stream().mapToInt(i -> i).toArray();
+        
+//     }
+// }
+
+
+
+public class Solution {
+    public int[] solution (int l, int r) {
+        
         ArrayList<Integer> list = new ArrayList<>();
-
-        for (int i = 1; i < Math.pow(2, 20); i++) {  // 2^20까지 탐색
+        
+        for (int i = 1; i < 64; i++) {
+            
             int num = Integer.parseInt(Integer.toBinaryString(i)) * 5;
-            if (num > r) {
-                break;  // num이 r을 넘어가면 반복문 종료
-            }
-            if (l <= num && num <= r) {
-                list.add(num);  // num이 l과 r 범위에 있을 때 추가
-            }
+            
+            if (l <= num && num <= r) list.add(num);
+            
         }
-
-        return list.isEmpty() ? new int[] { -1 } : list.stream().mapToInt(i -> i).toArray();
+        
+        return list.isEmpty() ? new int[] {-1} : list.stream().mapToInt(i -> i).toArray();  
     }
 }
+
+
 
 
 
