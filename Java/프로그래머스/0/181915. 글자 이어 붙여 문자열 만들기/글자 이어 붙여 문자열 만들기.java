@@ -1,18 +1,30 @@
-class Solution {
-    public String solution(String my_string, int[] index_list) {
+// class Solution {
+//     public String solution(String my_string, int[] index_list) {
         
-        // Declare StringBuilder result
+//         // Declare StringBuilder result
+//         StringBuilder result = new StringBuilder();
+        
+//         // for every char in the my_string append it to the result
+//         for (int i : index_list) {
+//             result.append(my_string.charAt(i));
+//         }
+        
+//         // Change StringBuilder type to String
+//         String answer = result.toString();
+        
+//         // Return the answer
+//         return answer;
+//     }
+// }
+class Solution {
+    public String solution (String my_string, int[] index_list) {
+        
         StringBuilder result = new StringBuilder();
         
-        // for every char in the my_string append it to the result
-        for (int i : index_list) {
-            result.append(my_string.charAt(i));
+        for (int idx : index_list) {
+            result.append(my_string.charAt(idx));
         }
         
-        // Change StringBuilder type to String
-        String answer = result.toString();
-        
-        // Return the answer
-        return answer;
-    }
+        return result.toString();
+    } 
 }
