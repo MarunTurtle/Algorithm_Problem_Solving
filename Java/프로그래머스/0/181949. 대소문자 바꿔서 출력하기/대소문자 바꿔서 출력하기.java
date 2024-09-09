@@ -4,6 +4,7 @@ public class Solution {
     public static void main (String[] args) {
         
         Scanner sc = new Scanner(System.in);
+        
         String str = sc.next();
         StringBuilder sb = new StringBuilder();
         
@@ -14,6 +15,7 @@ public class Solution {
                 sb.append(Character.toUpperCase(c));
             }
         }
+        
         System.out.print(sb.toString());
     }
 }
