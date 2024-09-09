@@ -25,29 +25,23 @@ import java.util.*;
 class Solution {
     public int[] solution (int n) {
         
-        ArrayList<Integer> collatz = new ArrayList<>();
-            
-        runCollatz(n, collatz);
-            
-        return collatz.stream().mapToInt(i -> i).toArray();
+        ArrayList<Integer> list = new ArrayList<>();
         
-    }
-    
-    private void runCollatz(int n, ArrayList<Integer> collatz) {
         while (n != 1) {
-            collatz.add(n);
+            
+            list.add(n);
             if (n % 2 == 0) {
                 n /= 2;
             } else {
-                n = 3 * n + 1;
+                n = n * 3 + 1;
             }
         }
-        collatz.add(1);
+        
+        list.add(1);
+        
+        return list.stream().mapToInt(i -> i).toArray();
     }
 }
-
-
-
 
 
 
