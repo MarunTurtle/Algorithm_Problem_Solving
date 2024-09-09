@@ -5,9 +5,9 @@ public class Solution {
         
         Scanner sc = new Scanner(System.in);
         
-        int a = sc.nextInt();
+        int n = sc.nextInt();
         
-        System.out.println(a + " is " + ((a % 2 == 0) ? "even" : "odd"));
+        System.out.println(n % 2 == 0 ? n + " is even" : n + " is odd");
         
     }
 }
