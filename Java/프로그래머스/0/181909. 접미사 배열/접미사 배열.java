@@ -1,19 +1,19 @@
-import java.util.Arrays;
+import java.util.*;
 
-class Solution {
-    public String[] solution(String my_string) {      
-               
-        // Array to store answer       
-        int length = my_string.length();
-        String[] answer = new String[length];
+public class Solution {
+    public String[] solution(String my_str) {
         
-        // Iterate through all of the postfixes
-        for (int i = 0; i < length; i++) {
-            answer[i] = my_string.substring(i);
+        int len = my_str.length();        
+        
+        ArrayList<String> result = new ArrayList<>();
+        
+        for (int i = 0; i < len; i++) {
+            
+            result.add(my_str.substring(i));
+            
         }
         
-        // Sort the answer and return answer
-        Arrays.sort(answer);
-        return answer;
+        return result.stream().sorted().toArray(String[]::new);
+        
     }
 }
