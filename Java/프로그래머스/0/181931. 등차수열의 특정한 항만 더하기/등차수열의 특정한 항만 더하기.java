@@ -22,6 +22,7 @@
 //     }
 // 
 
+
 import java.util.*;
 
 public class Solution {
@@ -30,13 +31,9 @@ public class Solution {
         int result = 0;
         
         for (int i = 0; i < included.length; i++) {
-            if (included[i]) {
-                result += a + d * i;
-            }
-        } 
+            if (included[i]) result += a + d * i;
+        }
         
         return result;
     }
 }
-
-
