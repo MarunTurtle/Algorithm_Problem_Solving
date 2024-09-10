@@ -1,25 +1,18 @@
-import java.util.ArrayDeque;
-import java.util.Deque;
+import java.util.*;
 
-class Solution {
-    public int[] solution(int[] arr) {
-
-        Deque<Integer> stack = new ArrayDeque<>();
-
-        for (int num : arr) {
-            // Ensure stack contains only elements in increasing order
-            while (!stack.isEmpty() && num <= stack.peek()) {
-                stack.pop();
+public class Solution {
+    public int[] solution (int[] arr) {
+        
+        Stack<Integer> stk = new Stack<>();
+        
+        for (int i = 0; i < arr.length; i++) {
+            while (!stk.isEmpty() && stk.peek() >= arr[i]) {
+                stk.pop();
             }
-            stack.push(num);
+            stk.push(arr[i]);
         }
-
-        // Convert Deque to int[]
-        int[] result = new int[stack.size()];
-        for (int i = result.length - 1; i >= 0; i--) {
-            result[i] = stack.pop();
-        }
-
-        return result;
+        
+        return stk.stream().mapToInt(i -> i).toArray();
+        
     }
 }
