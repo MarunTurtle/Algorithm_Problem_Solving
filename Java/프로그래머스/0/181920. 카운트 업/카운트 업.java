@@ -11,17 +11,55 @@
 //     }
 // }
 
+// import java.util.*;
+
+// class Solution {
+//     public int[] solution(int s, int e) {
+        
+//         ArrayList<Integer> list = new ArrayList<>();
+            
+//         for (int i = s; i <= e; i++) {
+//             list.add(i);
+//         }
+        
+//         return list.stream().mapToInt(i -> i).toArray();
+//     }
+// }
+
+
 import java.util.*;
 
-class Solution {
-    public int[] solution(int s, int e) {
+public class Solution {
+    public int[] solution (int s, int e) {
         
-        ArrayList<Integer> list = new ArrayList<>();
-            
+        ArrayList<Integer> result = new ArrayList<>();
+        
         for (int i = s; i <= e; i++) {
-            list.add(i);
+            result.add(i);
         }
         
-        return list.stream().mapToInt(i -> i).toArray();
+        return result.stream().mapToInt(i -> i).toArray();
     }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
