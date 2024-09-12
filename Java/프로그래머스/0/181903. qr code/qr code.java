@@ -1,14 +1,14 @@
 class Solution {
-    public String solution(int q, int r, String code) {
+    public String solution (int q, int r, String code) {
         
-        // Declare answer 
-        StringBuilder answer = new StringBuilder(); 
+        StringBuilder result = new StringBuilder();
         
-        // Iterate through all the index that meets the standard
-        for (int i = r; i < code.length(); i= i+q) {
-            answer.append(code.charAt(i));
+        for (int i = 0; i < code.length(); i++) {
+            if (i % q == r) {
+                result.append(code.charAt(i));
+            }
         }
         
-        return answer.toString();
+        return result.toString();
     }
 }
