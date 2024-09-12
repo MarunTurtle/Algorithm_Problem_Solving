@@ -1,15 +1,11 @@
 class Solution {
-    public String solution(String my_string, int n) {
-        // Declare answer
-        StringBuilder answer = new StringBuilder();
+    public String solution (String my_string, int n) {
         
-        // Declare length of the word
-        int length = my_string.length();
+        StringBuilder result = new StringBuilder(my_string);
         
-        // Add the substring to the answer
-        answer.append(my_string.substring(length - n)); 
+        int len = my_string.length();
         
-        // Return the answer
-        return answer.toString();
+        return result.substring(len-n).toString();      
+        
     }
 }
