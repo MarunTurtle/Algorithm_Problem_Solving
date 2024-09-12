@@ -1,21 +1,13 @@
-class Solution {
-    public String solution(String[] my_strings, int[][] parts) {
+public class Solution {
+    public String solution (String[] my_strings, int[][] parts) {
         
-        // Declare answer StringBuilder
-        StringBuilder answer = new StringBuilder();
+        StringBuilder result = new StringBuilder();
         
-        //Iterate through my_strings and parts simultaneously
-        for (int i = 0; i < my_strings.length; i++) {
-
-            // Select the characters using parts column numbers
-            String words = my_strings[i];
-            int start = parts[i][0];
-            int end = parts[i][1];
-                      
-            // Add them to the answer  
-            answer.append(words.substring(start, end + 1));
+        for (int i = 0; i < parts.length; i++) {
+            String substr = my_strings[i].substring(parts[i][0], parts[i][1]+1);
+            result.append(substr);
         }
         
-        return answer.toString();
+        return result.toString();
     }
 }
