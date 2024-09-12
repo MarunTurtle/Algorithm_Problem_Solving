@@ -1,20 +1,25 @@
-class Solution {
+import java.util.*;
+
+public class Solution {
     public int[] solution(String my_string) {
         
-        // Initialize the array for all the alphabets
-        int[] answer = new int[52];
+        int[] result = new int[52];
         
-        // Read the given string
-        for (char ch : my_string.toCharArray()) {
-            if (ch >= 'A' && ch <= 'Z') {
-                // Uppercase letters
-                answer[ch - 'A']++;
-            } else if (ch >= 'a' && ch <= 'z') {
-                //Lowercase letters
-                answer[ch - 'a' + 26]++;
+        for (char c : my_string.toCharArray()) {
+            
+            int idx = 0;
+            
+            if (Character.isUpperCase(c)) {
+                idx = 0 + c - 'A';    
+            } else {
+                idx = 0 + c - 'a' + 26;
             }
-        }
+            
+            result[idx]++;
+        }      
         
-        return answer;
+        return result;
     }
+    
+    
 }
