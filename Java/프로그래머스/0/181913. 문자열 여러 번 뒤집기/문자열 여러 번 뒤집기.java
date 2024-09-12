@@ -1,20 +1,19 @@
+import java.util.*;
+
 class Solution {
-    public String solution(String my_string, int[][] queries) {
+    public String solution (String my_string, int[][] queries) {
         
-        StringBuilder sb = new StringBuilder(my_string);
+        StringBuilder result = new StringBuilder(my_string);
         
-        for (int[] query : queries) {
-            
+        for (int[] query : queries) { 
             int s = query[0];
             int e = query[1];
             
-            String segment = sb.substring(s, e+1);
+            StringBuilder substr = new StringBuilder(result.substring(s, e+1));
             
-            String rev_seg = new StringBuilder(segment).reverse().toString();
-            
-            sb.replace(s, e+1, rev_seg);
+            result.replace(s, e+1, substr.reverse().toString());
         }
-               
-        return sb.toString();
+        
+        return result.toString();
     }
 }
