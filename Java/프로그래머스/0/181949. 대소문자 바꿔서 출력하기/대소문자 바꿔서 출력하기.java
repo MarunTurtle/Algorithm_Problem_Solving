@@ -10,12 +10,11 @@ public class Solution {
         
         for (char c : str.toCharArray()) {
             if (Character.isUpperCase(c)) {
-                sb.append(Character.toLowerCase(c));
+                sb.append(Character.toLowerCase(c));             
             } else {
                 sb.append(Character.toUpperCase(c));
             }
         }
-        
-        System.out.print(sb.toString());
+        System.out.print(sb.toString());        
     }
 }
