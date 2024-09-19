@@ -3,9 +3,10 @@ import java.util.*;
 public class Solution {
     public int solution (int a, int b) {
         
-        int m = Integer.parseInt("" + a + b);
-        int n = Integer.parseInt("" + b + a);
+        int ab = Integer.parseInt("" + a + b);
+        int ba = Integer.parseInt("" + b + a);
         
-        return m > n ? m : n;
+        return ab >= ba ? ab : ba;
+        
     }
 }
