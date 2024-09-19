@@ -1,18 +1,17 @@
 public class Solution {
     public int solution (int n) {
+    
+        int a = n % 2;
+        int sum = 0;
         
-        int result = 0;
-        
-        if (n % 2 == 0) {
-            for (int i = 0; i <= n; i+=2) {
-                result += (int) Math.pow(i, 2);
-            }
-        } else {
-            for (int i = 1; i <= n; i+=2) {
-                result += i;
+        for (int i = a; i <= n; i += 2) {
+            if (a == 1) {
+                sum += i;
+            } else {
+                sum += Math.pow(i, 2);
             }
         }
         
-        return result;
+        return sum;
     }
 }
