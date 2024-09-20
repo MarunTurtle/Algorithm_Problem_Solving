@@ -1,33 +1,13 @@
-// class Solution {
-//     public int[] solution(int[] arr, int[][] queries) {
-//         // Declare temporary int value for swapping
-//         int temp;
-//         for (int[] xy : queries) {
-//             // swap the selected values
-//             temp = arr[xy[0]];
-//             arr[xy[0]] = arr[xy[1]];
-//             arr[xy[1]] = temp; 
-//         }
-//         return arr;
-//     }
-// }
+import java.util.*;
 
-class Solution {
+public class Solution {
     public int[] solution (int[] arr, int[][] queries) {
         
-        for (int i = 0; i < queries.length; i++) {
-            
-            int n = queries[i][0];
-            int m = queries[i][1];
-            
-            int temp = 0;
-            temp = arr[n];
-            arr[n] = arr[m];
-            arr[m] = temp;
-            
+        for (int[] query : queries) {
+            int temp = arr[query[0]];
+            arr[query[0]] = arr[query[1]];
+            arr[query[1]] = temp;
         }
-        
-        return arr;
-        
+        return arr;        
     }
 }
