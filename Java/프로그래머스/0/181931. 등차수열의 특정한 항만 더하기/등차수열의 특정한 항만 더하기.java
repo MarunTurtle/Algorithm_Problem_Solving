@@ -1,17 +1,3 @@
-// class Solution {
-//     public int solution(int a, int d, boolean[] included) {
-//         int answer = 0;
-        
-//         // for loop --> included
-//         for (int i = 0; i < included.length; i++) {
-//             // add to answer if true
-//             answer += included[i] ? a + (d * i) : 0;
-//         }   
-//         return answer;
-//     }
-// }
-
-
 // import java.util.stream.IntStream;
 
 // class Solution {
@@ -25,15 +11,17 @@
 
 import java.util.*;
 
-public class Solution {
-    public int solution (int a, int d, boolean[] included) {
+class Solution {
+    public int solution(int a, int d, boolean[] included) {
         
-        int result = 0;
+        int sum = 0;
         
         for (int i = 0; i < included.length; i++) {
-            if (included[i]) result += a + d * i;
+            if (included[i]) {
+                sum += a + (d * i);
+            }
         }
         
-        return result;
+        return sum;
     }
 }
