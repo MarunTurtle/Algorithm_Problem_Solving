@@ -20,28 +20,6 @@
 //     }
 // }
 
-
-// import java.util.*;
-
-// public class Solution {
-//     public int[] solution (int n) {
-    
-//         ArrayList<Integer> result = new ArrayList<>();
-        
-//         while (n != 1) {
-//             result.add(n);
-//             if (n % 2 == 0) {
-//                 n /= 2;
-//             } else {
-//                 n = 3 * n + 1;
-//             }
-//         }
-        
-//         result.add(1);
-//         return result.stream().mapToInt(i -> i).toArray();
-//     }
-// }
-
 import java.util.*;
 
 public class Solution {
