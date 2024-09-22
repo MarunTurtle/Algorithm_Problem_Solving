@@ -1,13 +1,12 @@
-class Solution {
-    public String solution (String my_string, int s, int e) {
+public class Solution {
+    public String solution(String my_string, int s, int e) {
         
-        StringBuilder substr = new StringBuilder(my_string.substring(s, e+1));
+        StringBuilder result = new StringBuilder(my_string);
         
-        String reversed = substr.reverse().toString();
+        String reversed = new StringBuilder(result.substring(s, e+1)).reverse().toString();
         
-        StringBuilder result = new StringBuilder(my_string.substring(0, s) + reversed + my_string.substring(e+1));
+        result.replace(s, e+1, reversed);
         
         return result.toString();
-        
     }
 }
