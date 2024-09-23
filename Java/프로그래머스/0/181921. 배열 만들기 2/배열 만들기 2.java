@@ -23,24 +23,27 @@ public class Solution {
     public int[] solution (int l, int r) {
         
         ArrayList<Integer> result = new ArrayList<>();
-        
-        for (int i = l; i <= r; i++) {
-            String num = "" + i;
-            boolean check = true;
-            
-            for (int j = 0; j < num.length(); j++) {
-                if (num.charAt(j) != '5' && num.charAt(j) != '0') {
-                    check = false;
-                    break;
+        String numStr = "";
+
+        for (int num = l; num <= r; num++) {
+            if (num % 5 == 0) {
+                
+                numStr = num + "";
+                boolean isOk = true;
+                
+                for (char c : numStr.toCharArray()) {
+                    if ((c - '0') != 0 && (c - '0') != 5) {
+                        isOk = false;
+                        break;
+                    }
                 }
-            }
-            if (check) {
-                result.add(i);   
+                if (isOk) {
+                    result.add(num);
+                }
             }
         }
         
-        return result.isEmpty() ? new int[] {-1} : result.stream().mapToInt(i -> i).toArray();
-        
+        return result.isEmpty() ? new int[]{-1} : result.stream().mapToInt(i -> i).toArray();
     }
 }
 
