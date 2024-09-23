@@ -20,13 +20,11 @@ import java.util.*;
 
 class Solution {
     public int[] solution(int n, int k) {
-        
+
         ArrayList<Integer> result = new ArrayList<>();
         
-        for (int i = 0; i <= n; i+=k) {   
-            if (i != 0) {
-                result.add(i);
-            }
+        for(int i = k; i <= n; i += k) {
+            result.add(i);
         }
         
         return result.stream().mapToInt(i -> i).toArray();
