@@ -20,30 +20,31 @@
 import java.util.*;
 
 public class Solution {
-    public int[] solution (int l, int r) {
-        
+    public int[] solution(int l, int r) {
         ArrayList<Integer> result = new ArrayList<>();
-        String numStr = "";
+        
+        // 5로 시작하는 최소값 l을 찾기
+        int start = (l % 5 == 0) ? l : (l + (5 - l % 5));
 
-        for (int num = l; num <= r; num++) {
-            if (num % 5 == 0) {
-                
-                numStr = num + "";
-                boolean isOk = true;
-                
-                for (char c : numStr.toCharArray()) {
-                    if ((c - '0') != 0 && (c - '0') != 5) {
-                        isOk = false;
-                        break;
-                    }
-                }
-                if (isOk) {
-                    result.add(num);
-                }
+        // 5의 배수만 검사
+        for (int num = start; num <= r; num += 5) {
+            if (isValid(num)) {
+                result.add(num);
             }
         }
         
         return result.isEmpty() ? new int[]{-1} : result.stream().mapToInt(i -> i).toArray();
     }
+    
+    // 숫자가 0과 5로만 이루어졌는지 확인하는 함수
+    private boolean isValid(int num) {
+        while (num > 0) {
+            int digit = num % 10;
+            if (digit != 0 && digit != 5) {
+                return false;
+            }
+            num /= 10;
+        }
+        return true;
+    }
 }
-
