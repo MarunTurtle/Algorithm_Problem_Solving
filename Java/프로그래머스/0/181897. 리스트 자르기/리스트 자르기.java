@@ -1,49 +1,22 @@
-import java.util.ArrayList;
-import java.util.List;
-
-class Solution {
-    public int[] solution(int n, int[] slicer, int[] num_list) {
+public class Solution {
+    public int[] solution (int n, int[] slicer, int[] num_list) {
         int a = slicer[0];
         int b = slicer[1];
         int c = slicer[2];
-
-        List<Integer> resultList = new ArrayList<>();
-
-        switch (n) {
-            case 1:
-                // 0번 인덱스부터 b번 인덱스까지
-                for (int i = 0; i <= b; i++) {
-                    resultList.add(num_list[i]);
-                }
-                break;
-
-            case 2:
-                // a번 인덱스부터 마지막 인덱스까지
-                for (int i = a; i < num_list.length; i++) {
-                    resultList.add(num_list[i]);
-                }
-                break;
-
-            case 3:
-                // a번 인덱스부터 b번 인덱스까지
-                for (int i = a; i <= b; i++) {
-                    resultList.add(num_list[i]);
-                }
-                break;
-
-            case 4:
-                // a번 인덱스부터 b번 인덱스까지 c 간격으로
-                for (int i = a; i <= b; i += c) {
-                    resultList.add(num_list[i]);
-                }
-                break;
-
-            default:
-                throw new IllegalArgumentException("Invalid value of n");
+        int len = num_list.length - 1;
+        
+        int start = n == 1 ? 0 : a;
+        int end = n == 2 ? len : b;
+        int steps = n == 4 ? c : 1;
+        
+        int[] result = new int[(end - start + steps) / steps];
+        int idx = 0;
+            
+        for (int i = start; i <= end; i += steps) {
+            result[idx++] = num_list[i];
         }
-
-        // ArrayList를 int 배열로 변환하여 반환
-        return resultList.stream().mapToInt(i -> i).toArray();
+        
+        return result;        
     }
 }
 
