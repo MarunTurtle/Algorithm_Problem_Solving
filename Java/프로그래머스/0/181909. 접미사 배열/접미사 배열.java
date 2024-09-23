@@ -5,12 +5,15 @@ public class Solution {
         
         int len = my_string.length();
         
-        ArrayList<String> result = new ArrayList<>();
+        String[] result = new String[len];
         
         for (int i = 0; i < len; i++) {
-            result.add(my_string.substring(i));
+            result[i] = my_string.substring(i);
         }
+            
+        Arrays.sort(result);
         
-        return result.stream().sorted().toArray(String[]::new);
+        return result;
+    
     }
 }
