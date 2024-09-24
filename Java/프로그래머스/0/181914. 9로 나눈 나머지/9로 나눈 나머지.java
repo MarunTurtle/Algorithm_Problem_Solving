@@ -3,12 +3,12 @@ import java.util.*;
 public class Solution {
     public int solution (String number) {
         
-        int sum = 0;
+        int result = 0;
         
         for (char c : number.toCharArray()) {
-            sum += c - '0';
-        }
+            result += c - '0';
+        }   
         
-        return sum % 9;
+        return result % 9;
     }
 }
