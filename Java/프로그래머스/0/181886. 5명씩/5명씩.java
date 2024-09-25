@@ -1,16 +1,12 @@
-class Solution {
-    public String[] solution(String[] names) {
+public class Solution {
+    public String[] solution (String[] names) {
         
-        // Calculate the correct size for the answer array
-        int size = (names.length % 5 == 0) ? names.length / 5 : names.length / 5 + 1;
-        
-        String[] answer = new String[size];
-        
-        // Fill the answer array with every 5th name from the names array
-        for (int i = 0; i < size; i++) {
-            answer[i] = names[5 * i];
+        String[] result = new String[(names.length - 1 + 5)/5];
+        for (int i = 0, j = 0; i < names.length; i++) {
+            if (i % 5 == 0) {
+                result[j++] = names[i];  
+            }
         }
-        
-        return answer;
+        return result;
     }
 }
