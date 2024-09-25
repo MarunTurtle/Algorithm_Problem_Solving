@@ -1,44 +1,65 @@
-// import java.util.*;
+// // import java.util.*;
 
-// public class Solution {
-//     public String solution(String my_string, int[] indices) {
-//         Set<Integer> indexSet = new HashSet<>();
+// // public class Solution {
+// //     public String solution(String my_string, int[] indices) {
+// //         Set<Integer> indexSet = new HashSet<>();
         
-//         for (int idx : indices) {
-//             indexSet.add(idx);
-//         }
+// //         for (int idx : indices) {
+// //             indexSet.add(idx);
+// //         }
         
-//         StringBuilder result = new StringBuilder();
+// //         StringBuilder result = new StringBuilder();
         
-//         for (int i = 0; i < my_string.length(); i++) {
-//             if (!indexSet.contains(i)) {
-//                 result.append(my_string.charAt(i));
-//             }
-//         }
+// //         for (int i = 0; i < my_string.length(); i++) {
+// //             if (!indexSet.contains(i)) {
+// //                 result.append(my_string.charAt(i));
+// //             }
+// //         }
         
-//         return result.toString();
-//     }
-// }
+// //         return result.toString();
+// //     }
+// // }
 
-// import java.util.*;
+// // import java.util.*;
 
 
+
+// // class Solution {
+// //     public String solution(String my_string, int[] indices) {
+// //         StringBuilder sb = new StringBuilder(my_string);
+// //         for (int i : indices) {
+// //             sb.setCharAt(i, ' ');
+// //         }
+// //         return sb.toString().replace(" ", "");
+// //     }
+// // }
 
 // class Solution {
-//     public String solution(String my_string, int[] indices) {
-//         StringBuilder sb = new StringBuilder(my_string);
+//     public String solution (String my_string, int[] indices) {
+        
+//         String[] result = my_string.split("");
+        
 //         for (int i : indices) {
-//             sb.setCharAt(i, ' ');
+//             result[i] = "";
 //         }
-//         return sb.toString().replace(" ", "");
+        
+//         return String.join("", result);
 //     }
 // }
 
+import java.util.Arrays;
+import java.util.Set;
+import java.util.stream.Collectors;
 
-class Solution {
+public class Solution {
     public String solution(String my_string, int[] indices) {
-        String[] str = my_string.split("");
-        for (int i=0;i<indices.length;i++) str[indices[i]] = "";
-        return String.join("",str);
+        Set<Integer> indexSet = Arrays.stream(indices).boxed().collect(Collectors.toSet());
+        StringBuilder result = new StringBuilder();
+        for (int i = 0; i < my_string.length(); i++) {
+            if (!indexSet.contains(i)) {
+                result.append(my_string.charAt(i));
+            }
+        }
+        return result.toString();
     }
 }
