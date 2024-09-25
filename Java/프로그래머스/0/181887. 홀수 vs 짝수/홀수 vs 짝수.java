@@ -9,6 +9,6 @@ public class Solution {
             if (i % 2 == 1) evenSum += nums[i];
         }
         
-        return oddSum >= evenSum ? oddSum : evenSum;
+        return Math.max(oddSum, evenSum);
     }
 }
