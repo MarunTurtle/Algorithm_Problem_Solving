@@ -1,6 +1,14 @@
 class Solution {
-    public int solution(int[] numbers, int n) {
-        int answer = 0;
-        return answer;
+    public int solution (int[] nums, int n) {
+        
+        int sum = 0;
+        
+        for (int num : nums) {
+            if (sum <= n) {
+                sum += num;
+            }
+        }
+        
+        return sum;
     }
 }
