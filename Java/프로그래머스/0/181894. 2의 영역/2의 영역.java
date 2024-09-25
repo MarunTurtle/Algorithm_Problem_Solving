@@ -3,18 +3,16 @@ import java.util.*;
 public class Solution {
     public int[] solution (int[] arr) {
         
-        ArrayList<Integer> result = new ArrayList<>();
-        
-        int s = -1;  
+        int s = -1;
         int e = -1;
         int len = arr.length;
         
         for (int i = 0; i < len; i++) {
             if (arr[i] == 2) {
                 if (s == -1) {
-                    s = i;  
+                    s = i;
                 }
-                e = i;  
+                e = i;
             }
         }
         
@@ -22,10 +20,11 @@ public class Solution {
             return new int[]{-1};
         }
         
-        for (int j = s; j <= e; j++) {
-            result.add(arr[j]);
-        }     
+        int[] result = new int[e - s + 1];
         
-        return result.stream().mapToInt(i -> i).toArray();                
+        System.arraycopy(arr, s, result, 0, e - s + 1);
+        
+        return result;
+        
     }
 }
