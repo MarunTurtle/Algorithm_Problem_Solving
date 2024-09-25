@@ -1,12 +1,10 @@
-class Solution {
-    public int[] solution(int[] num_list, int n) {   
+public class Solution {
+    public int[] solution(int[] num_list, int n) {
         
-        int length = num_list.length;
+        int[] result = new int[num_list.length - n + 1];
         
-        int[] answers = new int[length + 1 - n];
-           
-        System.arraycopy(num_list, n-1, answers, 0, length + 1 - n);
-         
-        return answers;
+        System.arraycopy(num_list, n-1, result, 0, num_list.length - n + 1);
+        
+        return result;
     }
 }
