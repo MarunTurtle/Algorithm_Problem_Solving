@@ -1,19 +1,21 @@
-class Solution {
-    public int[] solution(int[] arr, int[] query) {
-        int s = 0;
-        int e = arr.length;
+import java.util.*;
 
+public class Solution {
+    public int[] solution (int[] arr, int[] query) {
+        
+        int len = arr.length;
+        int s = 0;
+        int e = len-1;
+        
         for (int i = 0; i < query.length; i++) {
             if (i % 2 == 0) {
-                e = s + query[i] + 1;
+                e -= e - s - query[i];
             } else {
                 s += query[i];
             }
         }
-
-        int[] answer = new int[e - s];
-        System.arraycopy(arr, s, answer, 0, e - s);
         
-        return answer;
+        return Arrays.copyOfRange(arr, s, e+1);
+        
     }
 }
