@@ -1,18 +1,20 @@
 import java.util.*;
 
 public class Solution {
-    public int[] solution (int[] arr, int[][] intervals) {
+    public int[] solution (int[] arr, int[][] queries) {
         
         ArrayList<Integer> result = new ArrayList<>();
         
-        for (int[] interval : intervals) {
-            int s = interval[0];
-            int e = interval[1];
+        for (int[] query : queries) {
+            
+            int s = query[0];
+            int e = query[1];
+            
             for (int i = s; i <= e; i++) {
-                result.add(arr[i]);
-            }
-        }        
+                result.add(arr[i]);   
+            }            
+        }
         
-        return result.stream().mapToInt(i -> i).toArray(); 
+        return result.stream().mapToInt(i -> i).toArray();
     }
 }
