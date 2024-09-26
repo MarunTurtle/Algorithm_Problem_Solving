@@ -2,17 +2,18 @@ import java.util.*;
 
 public class Solution {
     public int[] solution (String[] intStrs, int k, int s, int l) {
-               
+        
         ArrayList<Integer> result = new ArrayList<>();
         
         for (String intStr : intStrs) {
             
-            int subint = Integer.parseInt(intStr.substring(s, s + l));
+            String intSub = intStr.substring(s, s+l);
             
-            if (subint > k) result.add(subint);
+            int num = Integer.parseInt(intSub);
             
-        }
+            if (num > k) result.add(num);
+        }        
         
         return result.stream().mapToInt(i -> i).toArray();
-    }        
+    }
 }
