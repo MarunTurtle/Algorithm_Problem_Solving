@@ -1,14 +1,12 @@
-import java.util.*;
-
 public class Solution {
-    public String solution (String my_string, int m, int c) {
-        
-        StringBuilder result = new StringBuilder();
-        
-        for (int i = c - 1; i < my_string.length(); i += m) {
-            result.append(my_string.charAt(i));
+    public String solution (String str, int m, int c){
+        String[] strArr = str.split("");
+        StringBuilder sb = new StringBuilder();
+
+        for (int i = c-1; i < str.length(); i += m) {
+            sb.append(strArr[i]);            
         }
         
-        return result.toString();
+        return sb.toString();
     }
 }
