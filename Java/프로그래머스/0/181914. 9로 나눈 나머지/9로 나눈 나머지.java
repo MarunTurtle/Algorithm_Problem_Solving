@@ -6,9 +6,9 @@ public class Solution {
         int result = 0;
         
         for (char c : number.toCharArray()) {
-            result += c - '0';
-        }   
+            result += c - '0';            
+        }
         
         return result % 9;
-    }
+    }    
 }
