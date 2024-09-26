@@ -1,18 +1,27 @@
 import java.util.*;
 
 public class Solution {
-    public int[] solution (String my_string) {
+    public int[] solution (String str) {
+//      String[] strArr = str.split("");
         
-        int[] alphabets = new int[52];
+        int[] arr = new int[52];
         
-        for (char c : my_string.toCharArray()) {
+        for (char c : str.toCharArray()) {
+            
             if (Character.isUpperCase(c)) {
-                alphabets[c - 'A'] += 1;
+                
+                int idx = c - 'A';
+                arr[idx] += 1;
+                
             } else {
-                alphabets[c - 'a' + 26] += 1;
+                
+                int idx = c - 'a' + 26; 
+                arr[idx] += 1;
             }
+            
         }
         
-        return alphabets;
+        return arr;
+        
     }
 }
