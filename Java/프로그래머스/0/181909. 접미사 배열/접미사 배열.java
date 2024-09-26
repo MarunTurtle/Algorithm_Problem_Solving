@@ -1,19 +1,18 @@
 import java.util.*;
 
 public class Solution {
-    public String[] solution (String my_string) {
+    public String[] solution (String str) {
         
-        int len = my_string.length();
+        int len = str.length();
         
         String[] result = new String[len];
         
         for (int i = 0; i < len; i++) {
-            result[i] = my_string.substring(i);
+            result[i] = str.substring(i);
         }
-            
+        
         Arrays.sort(result);
         
         return result;
-    
     }
 }
