@@ -1,16 +1,18 @@
-class Solution {
-    public int solution (int[] num_list) {
+public class Solution {
+    public int solution (int[] numarr) {
         
         int result = -1;
-        int len = num_list.length;
+        int j = 0;
         
-        for (int i = 0; i < len; i++) {
-            if (num_list[i] < 0) {
-                result = i;
+        for (int num : numarr) {
+            if (num < 0) {
+                result = j;
                 break;
             }
+            j++;
         }
         
         return result;
+        
     }
-}
+} 
