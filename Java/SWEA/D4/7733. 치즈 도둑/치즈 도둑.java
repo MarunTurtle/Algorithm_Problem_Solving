@@ -1,94 +1,65 @@
-import java.util.Scanner;
-import java.util.ArrayDeque;
+import java.util.*;
 
-class Solution {
-    // 치즈 한 변의 길이 N
-    static int N;
-    // 치즈의 맛있는 정도를 저장하는 2D 배열
-    static int[][] cheese;
-    // BFS 탐색에서 방문 여부를 추적하는 2D 배열
-    static boolean[][] visited;
-    // BFS에서 상하좌우 네 방향으로의 이동을 나타내는 배열
-    static int[] dx = {-1, 1, 0, 0};
-    static int[] dy = {0, 0, -1, 1};
+public class Solution {
     
-    public static void main(String args[]) throws Exception {
+    static int N; // 치즈 한 변의 길이
+    static int[][] cheese; // 치즈의 맛있는 정도
+    static boolean[][] visited; // 방문 여부 체크
+    static int[] dx = {0, 0, 1, -1}; // 상, 하, 좌, 우 탐색
+    static int[] dy = {1, -1, 0, 0};
+
+    public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        int T;
-        T = sc.nextInt(); // 테스트 케이스 수 입력
+        int T = sc.nextInt(); // 테스트 케이스 수 입력
 
-        for(int test_case = 1; test_case <= T; test_case++) {
-            N = sc.nextInt(); // 치즈 한 변의 길이 입력
-            cheese = new int[N][N]; // 치즈 상태를 저장할 배열 초기화
-
-            // 치즈 상태 입력
+        for (int tc = 1; tc <= T; tc++) {
+            N = sc.nextInt();
+            cheese = new int[N][N];
+            
+            // 치즈 맛있는 정도 입력
             for (int i = 0; i < N; i++) {
                 for (int j = 0; j < N; j++) {
                     cheese[i][j] = sc.nextInt();
                 }
             }
 
-            int maxChunks = 1; // 초기 최대 덩어리 개수는 1로 설정
+            int maxChunks = 1; // 최대 덩어리 수 (최소 1개는 존재)
 
-            // 1일부터 100일까지 요정이 치즈를 갉아먹는 날을 시뮬레이션
+            // 1부터 100일까지 요정이 먹는 날짜 시뮬레이션
             for (int day = 1; day <= 100; day++) {
-                visited = new boolean[N][N]; // 방문 배열 초기화
-                int chunkCount = 0; // 현재 날짜에서의 덩어리 개수 초기화
+                visited = new boolean[N][N];
+                int chunks = 0; // 해당 날짜에 남은 덩어리 수
 
-                // 요정이 갉아먹은 치즈 상태로 갱신
                 for (int i = 0; i < N; i++) {
                     for (int j = 0; j < N; j++) {
-                        if (cheese[i][j] <= day) {
-                            cheese[i][j] = 0; // 맛있는 정도가 현재 날짜 이하인 칸은 갉아먹힘
+                        // 해당 칸이 아직 방문하지 않았고, 요정이 먹지 않은 칸일 때 DFS/BFS로 덩어리 탐색
+                        if (cheese[i][j] > day && !visited[i][j]) {
+                            chunks++;
+                            dfs(i, j, day); // 덩어리 찾기
                         }
                     }
                 }
-
-                // 남아있는 덩어리 수 세기
-                for (int i = 0; i < N; i++) {
-                    for (int j = 0; j < N; j++) {
-                        // 아직 방문하지 않았고 치즈가 남아있는 칸을 발견하면 BFS 수행
-                        if (cheese[i][j] > 0 && !visited[i][j]) {
-                            bfs(i, j);
-                            chunkCount++; // 새로운 덩어리 발견 시 덩어리 개수 증가
-                        }
-                    }
-                }
-
-                // 덩어리 수의 최대값 갱신
-                maxChunks = Math.max(maxChunks, chunkCount);
+                maxChunks = Math.max(maxChunks, chunks); // 최대 덩어리 갱신
             }
 
-            // 결과 출력 (테스트 케이스 번호와 함께 최대 덩어리 수 출력)
-            System.out.println("#" + test_case + " " + maxChunks);
+            // 출력 형식 맞추기
+            System.out.println("#" + tc + " " + maxChunks);
         }
-        
-        sc.close(); // 스캐너 닫기
+        sc.close();
     }
-    
-    // BFS를 사용하여 치즈 덩어리를 탐색
-    static void bfs(int x, int y) {
-        // 큐를 생성하여 시작 위치를 추가
-        ArrayDeque<int[]> queue = new ArrayDeque<>();
-        queue.add(new int[]{x, y});
-        visited[x][y] = true; // 시작 위치를 방문했다고 표시
 
-        // 큐가 빌 때까지 BFS 반복
-        while (!queue.isEmpty()) {
-            int[] current = queue.poll(); // 큐에서 현재 위치를 꺼냄
-            int cx = current[0];
-            int cy = current[1];
+    // DFS로 덩어리 탐색
+    static void dfs(int x, int y, int day) {
+        visited[x][y] = true; // 현재 위치 방문 처리
 
-            // 상하좌우 네 방향으로 인접한 칸을 탐색
-            for (int i = 0; i < 4; i++) {
-                int nx = cx + dx[i];
-                int ny = cy + dy[i];
+        // 상, 하, 좌, 우로 이동하며 탐색
+        for (int i = 0; i < 4; i++) {
+            int nx = x + dx[i];
+            int ny = y + dy[i];
 
-                // 유효한 범위 내에서, 아직 방문하지 않았고 치즈가 남아있다면 큐에 추가
-                if (nx >= 0 && ny >= 0 && nx < N && ny < N && !visited[nx][ny] && cheese[nx][ny] > 0) {
-                    visited[nx][ny] = true; // 방문 표시
-                    queue.add(new int[]{nx, ny}); // 다음 탐색을 위해 큐에 추가
-                }
+            // 유효한 좌표인지 확인하고, 아직 방문하지 않았으며, 요정이 먹지 않은 치즈일 경우
+            if (nx >= 0 && ny >= 0 && nx < N && ny < N && !visited[nx][ny] && cheese[nx][ny] > day) {
+                dfs(nx, ny, day); // 재귀적으로 덩어리 탐색
             }
         }
     }
