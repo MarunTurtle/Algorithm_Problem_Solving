@@ -1,19 +1,20 @@
 import java.util.*;
 
 public class Solution {
-    public int[] solution (String[] intStrs, int k, int s, int l) {
+    public int[] solution(String[] intStrs, int k, int s, int l) {
         
         ArrayList<Integer> result = new ArrayList<>();
         
-        for (String intStr : intStrs) {
-            
-            String intSub = intStr.substring(s, s+l);
-            
-            int num = Integer.parseInt(intSub);
-            
-            if (num > k) result.add(num);
-        }        
+        int len = intStrs.length;
+        int idx = 0;
         
-        return result.stream().mapToInt(i -> i).toArray();
+        while (idx < len) {
+            int num = Integer.parseInt(intStrs[idx].substring(s, s+l).toString());
+            if (num > k) result.add(num);
+            idx++;
+        }
+        
+        return result.stream().mapToInt(i -> i).toArray();     
+        
     }
 }
