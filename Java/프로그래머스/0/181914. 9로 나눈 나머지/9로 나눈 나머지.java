@@ -1,14 +1,16 @@
 import java.util.*;
 
 public class Solution {
-    public int solution (String number) {
+    public int solution (String num) {
         
-        int result = 0;
+        int sum = 0; 
+        int i = 0;
         
-        for (char c : number.toCharArray()) {
-            result += c - '0';            
+        while (i < num.length()) {
+            sum += num.charAt(i) - '0';
+            i++;
         }
         
-        return result % 9;
-    }    
+        return sum % 9;
+    }
 }
