@@ -1,16 +1,22 @@
 import java.util.*;
 
 public class Solution {
-
-    public String[] solution(String[] todo, boolean[] finished) {
-        List<String> resultList = new ArrayList<>(); 
+    
+    public static int len;
+    
+    public String[] solution (String[] todo, boolean[] finished) {
         
-        for (int i = 0; i < finished.length; i++) {
+        ArrayList<String> result = new ArrayList<>();
+        
+        len = finished.length;
+        
+        for (int i = 0; i < len; i++) {
             if (!finished[i]) {
-                resultList.add(todo[i]); 
+                result.add(todo[i]);
             }
         }
         
-        return resultList.toArray(new String[0]);
+        return result.toArray(new String[0]);
+            
     }
 }
