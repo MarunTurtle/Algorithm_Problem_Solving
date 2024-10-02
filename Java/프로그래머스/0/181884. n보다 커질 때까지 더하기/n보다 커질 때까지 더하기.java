@@ -1,12 +1,16 @@
-class Solution {
+public class Solution {
+    
+    static int sum;
+    static int i;
+    
     public int solution (int[] nums, int n) {
         
-        int sum = 0;
+        sum = 0; 
+        i = 0;
         
-        for (int num : nums) {
-            if (sum <= n) {
-                sum += num;
-            }
+        while(sum <= n) {
+            sum += nums[i];
+            i++;
         }
         
         return sum;
