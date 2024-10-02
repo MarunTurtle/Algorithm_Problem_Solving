@@ -1,10 +1,11 @@
+import java.util.*;
+
 public class Solution {
-    public int[] solution(int[] num_list, int n) {
+    public int[] solution (int[] num, int n) {
         
-        int[] result = new int[num_list.length - n + 1];
+        int len = num.length;
         
-        System.arraycopy(num_list, n-1, result, 0, num_list.length - n + 1);
+        return Arrays.copyOfRange(num, n-1, len);
         
-        return result;
     }
 }
