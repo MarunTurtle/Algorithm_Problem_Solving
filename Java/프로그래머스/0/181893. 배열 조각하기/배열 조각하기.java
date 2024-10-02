@@ -1,21 +1,30 @@
 import java.util.*;
 
 public class Solution {
+    
+    static ArrayList<Integer> result;
+    static int s;
+    static int e;
+    
     public int[] solution (int[] arr, int[] query) {
         
-        int len = arr.length;
-        int s = 0;
-        int e = len-1;
+        result = new ArrayList<>();
+        s = 0;
+        e = 0;
         
         for (int i = 0; i < query.length; i++) {
-            if (i % 2 == 0) {
-                e -= e - s - query[i];
+            if (i % 2 == 0) { 
+                e = s + query[i];
             } else {
-                s += query[i];
-            }
+                s = s + query[i];               
+            }          
         }
         
         return Arrays.copyOfRange(arr, s, e+1);
-        
     }
+        
+        
+        
+    
+        
 }
