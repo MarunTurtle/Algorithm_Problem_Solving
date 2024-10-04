@@ -1,5 +1,5 @@
 class Solution {
-    public String solution(String myString) {
-        return myString.toLowerCase();
+    public String solution (String str) {
+        return str.toLowerCase();
     }
 }
