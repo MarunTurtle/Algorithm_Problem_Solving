@@ -1,18 +1,18 @@
-class Solution {
-    public int solution(String[] orders) {
+public class Solution {
+    public int solution (String[] orders) {
+        int sum = 0;
+        String amrcno = "americano";
+        String latte = "latte";
         
-        int result = 0;
         
         for (String order : orders) {
-            if (order.contains("americano")) {
-                result += 4500;
-            } else if (order.contains("cafelatte")) {
-                result += 5000;
-            } else if (order.contains("anything")) {
-                result += 4500;
+            if (order.contains(latte)) {
+                sum += 5000;
+            } else {
+                sum += 4500;
             }
-        }   
+        }        
         
-        return result;
+        return sum;
     }
 }
