@@ -1,16 +1,16 @@
 public class Solution {
-    public int solution (int[] nums) {
-        int len = nums.length;
-        int count = 0; 
+    public int solution (int[] numArr) {
+        int count = 0;
         
-        for (int num : nums) {
-            while (num != 1) {
-                if (num % 2 == 0) {
-                    num /= 2;
+        for (int n : numArr) {
+            while (n != 1) {
+                if (n % 2 == 0) {
+                    n /= 2;
+                    count++;
                 } else {
-                    num = (num - 1)/2;
+                    n = (n-1) / 2;
+                    count++;
                 }
-                count++;
             }
         }
         
