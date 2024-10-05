@@ -1,14 +1,16 @@
+import java.util.*;
+
 public class Solution {
-    public String solution (String str, String alp) {
+    public String solution(String myStr, String alp) {
         
-        String[] strArr = str.split("");
+        String[] myStrArr = myStr.split("");
         
-        for (int i = 0; i < str.length(); i++) {
-            if (strArr[i].equals(alp)) {
-                strArr[i] = strArr[i].toUpperCase();
+        for (int i = 0; i < myStr.length(); i++) {
+            if (myStrArr[i].equals(alp)) {
+                myStrArr[i] = myStrArr[i].toUpperCase();
             }
         }
         
-        return String.join("", strArr);
+        return String.join("", myStrArr);
     }
 }
