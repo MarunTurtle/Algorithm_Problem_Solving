@@ -1,10 +1,11 @@
 import java.util.*;
 
-class Solution {
-    public int[] solution(int[] num_list) {
-        int length = num_list.length;
+public class Solution {
+    public int[] solution (int[] num_list) {
+        
         Arrays.sort(num_list);
-        return Arrays.copyOfRange(num_list, 5, length);
+        
+        return Arrays.copyOfRange(num_list, 5, num_list.length);
         
     }
 }
