@@ -1,15 +1,11 @@
-class Solution {
-    public String solution(String[] str_list, String ex) {
+public class Solution {
+    public String solution (String[] strList, String ex) {
+        StringBuilder sb = new StringBuilder();
         
-        StringBuilder result = new StringBuilder();
-        
-        // If the element contains the ex, erase the ex
-        for (String str : str_list) {
-            if (!str.contains(ex)) {
-                result.append(str);        
-            }
+        for (String str: strList) {
+            if (!str.contains(ex)) sb.append(str);
         }
         
-        return result.toString();
+        return sb.toString();
     }
 }
