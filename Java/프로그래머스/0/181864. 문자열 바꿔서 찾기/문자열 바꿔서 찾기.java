@@ -1,17 +1,16 @@
-class Solution {
-    public int solution(String myString, String pat) {
-        String[] changed = myString.split("");
-
-        for (int i = 0; i < changed.length; i++) {
-            if (changed[i].equals("A")) {
-                changed[i] = "B";
+public class Solution {
+    public int solution (String myStr, String pat) {
+        String[] strArr = myStr.split("");
+        
+        for (int i = 0; i < strArr.length; i ++) {
+            if (strArr[i].equals("B")) {
+                strArr[i] = "A"; 
             } else {
-                changed[i] = "A";
+                strArr[i] = "B"; 
             }
         }
-
-        String chStr = String.join("", changed);
-
-        return chStr.contains(pat) ? 1 : 0;  
-    }
+        
+        String result = String.join("", strArr);
+        return result.contains(pat) ? 1 : 0;
+     }
 }
