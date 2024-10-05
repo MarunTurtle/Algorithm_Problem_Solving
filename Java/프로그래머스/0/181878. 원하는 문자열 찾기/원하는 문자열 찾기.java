@@ -1,12 +1,10 @@
 import java.util.*;
 
 public class Solution {
-    public int solution (String str, String pat) {
-        
-        str = str.toLowerCase();
+    public int solution (String myStr, String pat) {
+        myStr = myStr.toLowerCase();
         pat = pat.toLowerCase();
         
-        return str.contains(pat) ? 1 : 0;
-        
+        return myStr.contains(pat) ? 1 : 0;
     }
 }
