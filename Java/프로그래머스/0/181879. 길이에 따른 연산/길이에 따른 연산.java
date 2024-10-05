@@ -1,20 +1,19 @@
 public class Solution {
-    public int solution (int[] nums) {
-        int len = nums.length;
-        int sum;
+    public int solution (int[] numArr) {
+        int len = numArr.length;
         
-        if (len > 10) {
-            sum = 0; 
-            for (int num : nums) {
-                sum += num;
+        if (len >= 11) {
+            int sum = 0;
+            for (int n : numArr) {
+                sum += n;
             }
             return sum;
         } else {
-            sum = 1;
-            for (int num : nums) {
-                sum *= num;
+            int prod = 1;
+            for (int n : numArr) {
+                prod *= n;
             }
-            return sum;
+            return prod;
         }
     }
 }
