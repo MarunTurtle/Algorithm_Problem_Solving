@@ -1,17 +1,16 @@
 public class Solution {
-    public int solution (int[] num_list) {
+    public int solution(int[] nums) {
         int oddSum = 0;
         int evenSum = 0;
         
-        for (int i = 0; i < num_list.length; i++) {
+        for (int i = 0; i < nums.length; i++) {
             if (i % 2 == 0) {
-                oddSum += num_list[i];
+                oddSum += nums[i];
             } else {
-                evenSum += num_list[i];
+                evenSum += nums[i];
             }
         }
         
-        return Math.max(evenSum, oddSum);
-        
+        return evenSum >= oddSum ? evenSum : oddSum;
     }
 }
