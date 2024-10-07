@@ -1,16 +1,15 @@
-class Solution { 
-    public String solution(String str) {
+public class Solution {
+    public String solution(String myStr) {
         
-        
-        String[] strArr = str.split("");
-        int len = str.length();
+        String[] result = myStr.split("");
+        int len = myStr.length();
         
         for (int i = 0; i < len; i++) {
-            if (strArr[i].equals("m")) {
-                strArr[i] = "rn";
+            if (result[i].equals("m")) {
+                result[i] = "rn";
             }
         }
         
-        return String.join("", strArr);
+        return String.join("", result);
     }
 }
