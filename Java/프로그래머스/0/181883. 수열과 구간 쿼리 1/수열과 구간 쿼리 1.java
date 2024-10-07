@@ -1,7 +1,9 @@
 public class Solution {
     public int[] solution(int[] arr, int[][] queries) {
         
-        for (int[] query : queries) { 
+        int len = arr.length;
+        
+        for (int[] query : queries) {
             int s = query[0];
             int e = query[1];
             
@@ -11,6 +13,5 @@ public class Solution {
         }
         
         return arr;
-        
     }
 }
