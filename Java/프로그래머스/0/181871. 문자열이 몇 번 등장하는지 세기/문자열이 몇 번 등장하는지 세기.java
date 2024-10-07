@@ -1,11 +1,13 @@
-class Solution {
-    public int solution(String myString, String pat) {
+public class Solution {
+    public int solution(String myStr, String pat) {
         
+        int len = myStr.length();
         int count = 0;
         
-        for (int i = 0; i < myString.length() - pat.length() + 1; i++) {
-            String subString = myString.substring(i, i + pat.length());
-            if (subString.equals(pat)) count++;    
+        for (int i = len; i >= 0; i--) {
+            if (myStr.substring(0, i).endsWith(pat)) {
+                count++;
+            }
         }
         
         return count;
