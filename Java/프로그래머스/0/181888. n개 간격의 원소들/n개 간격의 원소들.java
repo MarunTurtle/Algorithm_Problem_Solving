@@ -1,14 +1,13 @@
 import java.util.*;
 
 public class Solution {
-    public int[] solution(int[] num_list, int n) {
+    public int[] solution (int[] num, int n) {
+        int len = num.length;
         
-        int len = num_list.length;
-        int size = (len - 1 + n) / n;
-        int[] result = new int[size];
+        int[] result = new int[(len - 1 + n)/n];
         
         for (int i = 0, j = 0; i < len; i += n) {
-            result[j++] = num_list[i];
+            result[j++] = num[i];
         }
         
         return result;
