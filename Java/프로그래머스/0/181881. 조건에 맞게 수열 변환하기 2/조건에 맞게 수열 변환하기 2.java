@@ -1,28 +1,25 @@
 public class Solution {
     public int solution(int[] arr) {
-        int unchanged; 
-        int count = 0; 
         
-        while (true) {
-            unchanged = 0; 
-            
-            for (int i = 0; i < arr.length; i++) {
+        boolean isDone = false;
+        int count = 0;
+        int len = arr.length;
+        
+        while (!isDone) {
+            int round = 0;
+            for (int i = 0; i < len; i++) {
                 if (arr[i] >= 50 && arr[i] % 2 == 0) {
-                    arr[i] /= 2;
+                    arr[i] /= 2;   
                 } else if (arr[i] < 50 && arr[i] % 2 == 1) {
-                    arr[i] = arr[i] * 2 + 1;
+                    arr[i] = (arr[i] * 2) + 1;
                 } else {
-                    unchanged++; 
+                    round++;
                 }
             }
-            
-            count++; 
-            
-            if (unchanged == arr.length) {
-                break;
-            }
+            if (round == len) isDone = true;
+            count++;
         }
         
-        return count - 1; 
+        return count - 1;
     }
 }
