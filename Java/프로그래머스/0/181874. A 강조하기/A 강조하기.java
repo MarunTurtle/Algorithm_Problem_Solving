@@ -1,27 +1,18 @@
-class Solution {
-    public String solution(String myString) {
-        // Use StringBuilder to build the result string
-        StringBuilder result = new StringBuilder();
+public class Solution {
+    public String solution (String myStr) {
         
-        // Iterate through each character of the string
-        for (int i = 0; i < myString.length(); i++) {
-            char currentChar = myString.charAt(i);
-            
-            // If the character is 'a', convert to 'A'
-            if (currentChar == 'a') {
-                result.append('A');
-            } 
-            // If the character is an uppercase letter but not 'A', convert to lowercase
-            else if (Character.isUpperCase(currentChar) && currentChar != 'A') {
-                result.append(Character.toLowerCase(currentChar));
-            } 
-            // Otherwise, just append the character as is
-            else {
-                result.append(currentChar);
+        int len = myStr.length();
+        
+        String[] result = myStr.split("");
+        
+        for (int i = 0; i < len; i++) {
+            if (result[i].toUpperCase().equals("A")) {
+                result[i] = result[i].toUpperCase();
+            } else {
+                result[i] = result[i].toLowerCase();
             }
         }
         
-        // Convert StringBuilder to String and return it
-        return result.toString();
+        return String.join("", result);
     }
 }
