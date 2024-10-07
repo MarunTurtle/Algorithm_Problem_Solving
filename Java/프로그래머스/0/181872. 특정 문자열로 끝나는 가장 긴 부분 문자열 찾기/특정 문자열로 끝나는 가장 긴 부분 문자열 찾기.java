@@ -1,15 +1,16 @@
-class Solution {
-    public String solution(String myString, String pat) {
+public class Solution {
+    public String solution (String myStr, String pat) {
         
-        // Find the last occurrence of the pattern
-        int index = myString.lastIndexOf(pat);
+        String answer = "";
         
-        // If the pattern is found, return the substring that ends at the end of the pattern
-        if (index != -1) {
-            return myString.substring(0, index + pat.length());
+        int len = myStr.length();
+        
+        for (int i = len; i >= 0; i--) {
+            if (myStr.substring(0, i).endsWith(pat)) {
+                return myStr.substring(0, i);
+            }
         }
         
-        // If the pattern is not found, return the original string
-        return myString;
+        return answer;
     }
 }
