@@ -1,8 +1,7 @@
 public class Solution {
-    public int solution (String myStr, String pat) {
+    public int solution(String myStr, String pat) {
         
         int len = myStr.length();
-        
         String[] result = myStr.split("");
         
         for (int i = 0; i < len; i++) {
@@ -14,5 +13,6 @@ public class Solution {
         }
         
         return String.join("", result).contains(pat) ? 1 : 0;
+        
     }
 }
