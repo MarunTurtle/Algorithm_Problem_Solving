@@ -1,16 +1,12 @@
 public class Solution {
     public String solution (String myStr, String pat) {
         
-        String answer = "";
+        int len = pat.length();
         
-        int len = myStr.length();
+        int idx = myStr.lastIndexOf(pat);
         
-        for (int i = len; i >= 0; i--) {
-            if (myStr.substring(0, i).endsWith(pat)) {
-                return myStr.substring(0, i);
-            }
-        }
+        return myStr.substring(0, len + idx);
         
-        return answer;
+        
     }
 }
