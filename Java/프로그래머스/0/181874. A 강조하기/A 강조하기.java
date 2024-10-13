@@ -1,6 +1,5 @@
 public class Solution {
-    public String solution (String myStr) {
-        
+    public String solution(String myStr) {
         int len = myStr.length();
         
         String[] result = myStr.split("");
