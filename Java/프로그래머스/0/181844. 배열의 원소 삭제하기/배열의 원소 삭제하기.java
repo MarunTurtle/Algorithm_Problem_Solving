@@ -1,28 +1,26 @@
-import java.util.ArrayList;
-import java.util.Arrays;
+import java.util.*;
 
-class Solution {
-    public int[] solution(int[] arr, int[] delete_list) {
-        ArrayList<Integer> result = new ArrayList<>();
-        
-        // Convert delete_list array to a List for easier 'contains' checking
-        ArrayList<Integer> deleteList = new ArrayList<>();
-        for (int i : delete_list) {
-            deleteList.add(i);
+public class Solution {
+    public int[] solution(int[] arr, int[] delete) {
+        Deque<Integer> arrQue = new ArrayDeque<>();
+        for (int num : arr) {
+            arrQue.offer(num);
         }
 
-        for (int i = 0; i < arr.length; i++) {
-            if (!deleteList.contains(arr[i])) {
-                result.add(arr[i]);
+        // 삭제할 값들을 저장하는 Set을 사용 (중복 제거와 빠른 탐색)
+        Set<Integer> deleteSet = new HashSet<>();
+        for (int num : delete) {
+            deleteSet.add(num);
+        }
+
+        int originalSize = arrQue.size();
+        for (int i = 0; i < originalSize; i++) {
+            int temp = arrQue.poll();
+            if (!deleteSet.contains(temp)) {
+                arrQue.offer(temp);
             }
         }
-        
-        // Convert ArrayList back to int array
-        int[] finalResult = new int[result.size()];
-        for (int i = 0; i < result.size(); i++) {
-            finalResult[i] = result.get(i);
-        }
-        
-        return finalResult;
+
+        return arrQue.stream().mapToInt(i -> i).toArray();
     }
 }
