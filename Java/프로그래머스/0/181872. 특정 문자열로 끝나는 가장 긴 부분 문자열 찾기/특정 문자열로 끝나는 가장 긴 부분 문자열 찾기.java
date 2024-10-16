@@ -1,3 +1,5 @@
+import java.util.*;
+
 public class Solution {
     public String solution (String myStr, String pat) {
         
@@ -6,7 +8,6 @@ public class Solution {
         int idx = myStr.lastIndexOf(pat);
         
         return myStr.substring(0, len + idx);
-        
         
     }
 }
