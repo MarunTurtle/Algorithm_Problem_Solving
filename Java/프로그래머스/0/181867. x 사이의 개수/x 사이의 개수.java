@@ -1,32 +1,23 @@
-import java.util.ArrayList;
+import java.util.*;
 
-class Solution {
-    public ArrayList<Integer> solution(String myString) {
+public class Solution {
+    public int[] solution (String myStr) {
         
-        // Declare ArrayList to store the result
-        ArrayList<Integer> result = new ArrayList<>();
-        
-        // Initialize count
+        int len = myStr.length();
         int count = 0;
         
-        // Iterate through the string
-        for (int i = 0; i < myString.length(); i++) {
-            char currentChar = myString.charAt(i);
+        List<Integer> arr = new ArrayList<>();
             
-            if (currentChar == 'x') {
-                // Add the current count to the result list
-                result.add(count);
-                // Reset count for the next segment
+        for (int i = 0; i < len; i++) {
+            if (myStr.charAt(i) == 'x') {
+                arr.add(count);
                 count = 0;
             } else {
-                // Increment count for non-'x' characters
                 count++;
             }
         }
+        arr.add(count);
         
-        // Add the final count after the last segment
-        result.add(count);
-        
-        return result;
+        return arr.stream().mapToInt(i -> i).toArray();
     }
 }
