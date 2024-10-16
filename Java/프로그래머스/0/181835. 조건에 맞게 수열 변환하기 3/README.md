@@ -1,10 +1,10 @@
 # [level 0] 조건에 맞게 수열 변환하기 3 - 181835 
 
-[문제 링크](https://school.programmers.co.kr/learn/courses/30/lessons/181835) 
+[문제 링크](https://school.programmers.co.kr/learn/courses/30/lessons/181835?language=java) 
 
 ### 성능 요약
 
-메모리: 167 MB, 시간: 10.79 ms
+메모리: 183 MB, 시간: 6.74 ms
 
 ### 구분
 
@@ -16,7 +16,7 @@
 
 ### 제출 일자
 
-2024년 09월 03일 15:01:53
+2024년 10월 16일 16:30:27
 
 ### 문제 설명
 
