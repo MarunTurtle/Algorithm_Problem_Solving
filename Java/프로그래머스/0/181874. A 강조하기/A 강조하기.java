@@ -1,17 +1,18 @@
 public class Solution {
-    public String solution(String myStr) {
+    public String solution (String myStr) {
+        
+        StringBuilder sb = new StringBuilder();
         int len = myStr.length();
         
-        String[] result = myStr.split("");
-        
         for (int i = 0; i < len; i++) {
-            if (result[i].toUpperCase().equals("A")) {
-                result[i] = result[i].toUpperCase();
+            if (myStr.charAt(i) == 'a' || myStr.charAt(i) == 'A') {
+                sb.append('A');
             } else {
-                result[i] = result[i].toLowerCase();
+                sb.append(("" + myStr.charAt(i)).toLowerCase());
             }
         }
         
-        return String.join("", result);
+        return sb.toString();        
+        
     }
 }
