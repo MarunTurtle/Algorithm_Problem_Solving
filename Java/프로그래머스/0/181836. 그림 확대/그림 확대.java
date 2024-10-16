@@ -1,27 +1,27 @@
-class Solution {
-    public String[] solution(String[] picture, int k) {
-        int len = picture.length;
-        int width = picture[0].length();
-        String[] nPicture = new String[len * k];
+public class Solution {
+    public String[] solution (String[] picture, int size) {
         
-        // Iterate over each row in the original picture
+        int len = picture.length;
+        int rowlen = picture[0].length();
+        String[] result = new String[len * size];
+        int idx = 0;
+        
+        // For every row(String) in a picture
         for (int i = 0; i < len; i++) {
-            StringBuilder newRow = new StringBuilder();
-            
-            // Expand each character in the row horizontally by k
-            for (int j = 0; j < width; j++) {
-                char c = picture[i].charAt(j);
-                for (int l = 0; l < k; l++) {
-                    newRow.append(c);
+            StringBuilder sb = new StringBuilder();
+            String[] temp = picture[i].split("");
+            // Add the pixels * k
+            for (int j = 0; j < rowlen; j++) {
+                for (int k = 0; k < size; k++) {
+                    sb.append(temp[j]);
                 }
             }
-            
-            // Repeat the newRow k times to expand it vertically
-            for (int m = 0; m < k; m++) {
-                nPicture[i * k + m] = newRow.toString();
+            for (int l = 0; l < size; l++) {
+                result[idx++] = sb.toString();     
             }
+          
         }
-        
-        return nPicture;
+        // return result
+        return result;
     }
 }
