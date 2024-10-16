@@ -1,38 +1,41 @@
 class Solution {
-    public int[][] solution(int n) {
-        int t = n * n; // Total number of elements to fill
-        int[][] spiral = new int[n][n]; // Create an n x n array
+    public int[][] solution (int n) {
         
-        int value = 1; // The first number to fill in the array
-        int top = 0, bottom = n - 1;
-        int left = 0, right = n - 1;
+        int t = n * n;
+        int[][] matrix = new int[n][n];
+        
+        int top = 0, bottom = n-1;
+        int left = 0, right = n-1;
+        
+        int value = 1;
         
         while (value <= t) {
-            // Fill the top row (left -> right)
+            
+            // top
             for (int i = left; i <= right; i++) {
-                spiral[top][i] = value++;
+                matrix[top][i] = value++;
             }
             top++;
             
-            // Fill the right column (top -> bottom)
+            // right
             for (int i = top; i <= bottom; i++) {
-                spiral[i][right] = value++;
+                matrix[i][right] = value++;
             }
             right--;
             
-            // Fill the bottom row (right -> left)
+            // bottom
             for (int i = right; i >= left; i--) {
-                spiral[bottom][i] = value++;
+                matrix[bottom][i] = value++;
             }
             bottom--;
             
-            // Fill the left column (bottom -> top)
+            // left
             for (int i = bottom; i >= top; i--) {
-                spiral[i][left] = value++;
+                matrix[i][left] = value++;
             }
             left++;
         }
         
-        return spiral; // Return the result
+        return matrix;
     }
 }
