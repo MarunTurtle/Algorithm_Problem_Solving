@@ -1,24 +1,15 @@
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
 
-class Solution {
-    public String[] solution(String[] strArr) {
+public class Solution {
+    public String[] solution (String[] strArr) {
         
-        // Declare pattern
-        String pat = "ad";
+        ArrayList<String> result = new ArrayList<>();
+        int len = strArr.length;
         
-        // Use ArrayList for dynamic size
-        List<String> resultList = new ArrayList<>();
-        
-        // Iterate through all strings in strArr
-        for (String curString : strArr) {
-            // If the current string does not contain the pattern, add it to the list
-            if (!curString.contains(pat)) {
-                resultList.add(curString);
-            }
+        for (int i = 0; i < len; i++) {
+            if (!strArr[i].contains("ad")) result.add(strArr[i]);
         }
         
-        // Convert ArrayList back to an array
-        return resultList.toArray(new String[0]);
+        return result.toArray(new String[0]);
     }
 }
