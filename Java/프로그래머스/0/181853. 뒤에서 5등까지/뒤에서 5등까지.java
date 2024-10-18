@@ -1,8 +1,11 @@
-import java.util.Arrays;
+import java.util.*;
 
-class Solution {
-    public int[] solution(int[] num_list) {
-        Arrays.sort(num_list);
-        return Arrays.copyOfRange(num_list, 0, 5);
-    }
+public class Solution {
+    public int[] solution (int[] numList) {
+        
+        Arrays.sort(numList);
+        
+        return Arrays.copyOfRange(numList, 0, 5);        
+        
+    }    
 }
