@@ -1,12 +1,13 @@
 import java.util.*;
 
 public class Solution {
-    public String[] solution(String myStr) {
-        StringTokenizer st = new StringTokenizer(myStr);
-        int N = st.countTokens();
-        String[] result = new String[N];
+    public String[] solution (String myStr) {
         
-        for (int i = 0; i < N; i++) {
+        StringTokenizer st = new StringTokenizer(myStr);
+        int n = st.countTokens();
+        String[] result = new String[n];
+        
+        for (int i = 0; i < n; i++) {
             result[i] = st.nextToken();
         }
         
