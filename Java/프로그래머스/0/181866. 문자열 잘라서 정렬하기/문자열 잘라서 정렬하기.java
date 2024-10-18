@@ -1,17 +1,21 @@
-import java.util.Arrays;
-import java.util.List;
-import java.util.stream.Collectors;
+import java.util.*;
 
-class Solution {
-    public String[] solution(String myString) {
-        // Split the string using "x" as the delimiter
-        String[] parts = myString.split("x");
+public class Solution {
+    public String[] solution (String myStr) {
         
-        // Filter out empty strings, sort the remaining strings lexicographically,
-        // and collect them into a list
-        return Arrays.stream(parts)
-                     .filter(s -> !s.isEmpty())  // Remove empty strings
-                     .sorted()                   // Sort lexicographically
-                     .toArray(String[]::new);
+        String[] parts = myStr.split("x");
+               
+        List<String> newParts = new ArrayList<>();
+        
+        for (String part : parts) {
+            if (!part.equals("")) {
+                newParts.add(part);
+            }
+        }
+        
+        String[] result = newParts.toArray(new String[0]);
+        Arrays.sort(result);
+        
+        return result;
     }
 }
