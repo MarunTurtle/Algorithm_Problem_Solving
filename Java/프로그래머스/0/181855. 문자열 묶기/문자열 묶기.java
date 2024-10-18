@@ -1,25 +1,17 @@
 import java.util.*;
 
-class Solution {
+public class Solution {
     public int solution(String[] strArr) {
-        // Initialize maxLength to track the maximum length of any string
-        int maxLength = 0;
-        for (String word : strArr) {
-            // Use Math.max to update maxLength
-            maxLength = Math.max(maxLength, word.length());
+        
+        Map<Integer, Integer> lengthMap = new HashMap<>();
+        
+        for (String str : strArr) {
+            int len = str.length();
+            lengthMap.put(len, lengthMap.getOrDefault(len, 0) + 1);
         }
         
-        // Create countArr with size maxLength + 1
-        int[] countArr = new int[maxLength + 1];
-        
-        // Count occurrences of each string length
-        for (String word : strArr) {
-            countArr[word.length()]++;
-        }
-        
-        // Find the maximum count using Math.max
         int maxCount = 0;
-        for (int count : countArr) {
+        for (int count : lengthMap.values()) {
             maxCount = Math.max(maxCount, count);
         }
         
