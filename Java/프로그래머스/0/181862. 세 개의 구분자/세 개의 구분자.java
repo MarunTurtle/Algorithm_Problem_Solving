@@ -1,18 +1,28 @@
-import java.util.StringTokenizer;
-class Solution {
-    public String[] solution(String myStr) {
-        String[] answer = {};
-        StringTokenizer st = new StringTokenizer(myStr,"abc");
-        if(st.countTokens() != 0){
-            answer = new String[st.countTokens()];
-            for(int i=0; i<answer.length; i++){
-                answer[i] = st.nextToken();
-            }
-        }else{
-            answer = new String[1];
-            answer[0] = "EMPTY";
-        }
+import java.util.*;
 
-        return answer;
+public class Solution {
+    public String[] solution (String myStr) {
+        
+        StringBuilder sb = new StringBuilder();
+        ArrayList<String> result = new ArrayList<>();
+        int len = myStr.length();
+        
+        for (int i = 0; i < len; i++) {
+            char c = myStr.charAt(i);
+            if (c != 'a' && c != 'b' && c != 'c') {
+                sb.append(c);
+            } else if (sb.length() != 0) {
+                result.add(sb.toString());
+                sb.setLength(0);
+            }
+        }
+        
+        result.add(sb.toString());
+        
+        if (sb.length() == 0) {
+            return new String[] {"EMPTY"};
+        }
+        
+        return result.toArray(new String[0]);
     }
 }
