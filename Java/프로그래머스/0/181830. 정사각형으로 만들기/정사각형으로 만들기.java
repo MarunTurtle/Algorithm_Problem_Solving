@@ -1,21 +1,20 @@
-class Solution {
-    public int[][] solution (int[][] arr) {
+public class Solution {
+    public int[][] solution(int[][] arr) {
         
-        int colsize = arr[0].length;
-        int rowsize = arr.length;
-        int size = Math.max(colsize, rowsize);       
-        int[][] result = new int[size][size];
+        int rowLen = arr.length;
+        int colLen = arr[0].length;
+        int maxLen = rowLen > colLen ? rowLen : colLen;
         
-        if (colsize != rowsize) {
-            for (int i = 0; i < rowsize; i++) {
-                for (int j = 0; j < colsize; j++) {
-                    result[i][j] = arr[i][j];
+        if (rowLen != colLen) {
+            int[][] newArr = new int[maxLen][maxLen];
+            for (int i = 0; i < rowLen; i++) {
+                for (int j = 0; j < colLen; j++) {
+                    newArr[i][j] = arr[i][j];
                 }
             }
-            
-            return result;
+            return newArr;
         } else {
             return arr;
         }
-    }   
+    }
 }
