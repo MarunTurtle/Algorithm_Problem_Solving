@@ -1,13 +1,13 @@
-import java.math.BigInteger;
+import java.math.*;
 
-class Solution {
+public class Solution {
     public String solution(String a, String b) {
-        try {
-            BigInteger ia = new BigInteger(a);
-            BigInteger ib = new BigInteger(b);
-            return ia.add(ib).toString();
-        } catch (NumberFormatException e) {
-            return "Invalid input";
-        }
+        BigInteger aa = new BigInteger(a);
+        BigInteger bb = new BigInteger(b);
+        
+        BigInteger cc = aa.add(bb);
+        
+        return cc.toString();
+        
     }
 }
