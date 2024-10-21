@@ -1,17 +1,17 @@
 class Solution {
-    public String solution(String myString) {
+    public String solution (String myStr) {
         
-        int len = myString.length();
         StringBuilder sb = new StringBuilder();
+        int len = myStr.length();
         
         for (int i = 0; i < len; i++) {
-            if (myString.charAt(i) < 'l') {
+            if (myStr.charAt(i) < 'l') {
                 sb.append('l');
             } else {
-                sb.append(myString.charAt(i));
+                sb.append(myStr.charAt(i));
             }
         }
         
-        return sb.toString();        
+        return sb.toString();
     }
 }
