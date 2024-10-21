@@ -3,19 +3,17 @@ import java.util.*;
 public class Solution {
     public String[] solution (String myStr) {
         
-        String[] parts = myStr.split("x");
-               
-        List<String> newParts = new ArrayList<>();
+        StringTokenizer st = new StringTokenizer(myStr, "x");
+        int len = st.countTokens();
+        String[] result = new String[len];
         
-        for (String part : parts) {
-            if (!part.equals("")) {
-                newParts.add(part);
-            }
+        for (int i = 0; i < len; i++) {
+            result[i] = st.nextToken();
         }
         
-        String[] result = newParts.toArray(new String[0]);
         Arrays.sort(result);
         
         return result;
+        
     }
 }
