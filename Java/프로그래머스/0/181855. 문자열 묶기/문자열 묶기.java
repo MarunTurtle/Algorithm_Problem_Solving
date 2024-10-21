@@ -1,20 +1,19 @@
 import java.util.*;
 
 public class Solution {
-    public int solution(String[] strArr) {
+    public int solution (String[] strArr) {
         
-        Map<Integer, Integer> lengthMap = new HashMap<>();
+        HashMap<Integer, Integer> map = new HashMap<>();
         
         for (String str : strArr) {
-            int len = str.length();
-            lengthMap.put(len, lengthMap.getOrDefault(len, 0) + 1);
+            map.put(str.length(), map.getOrDefault(str.length(), 0) + 1);
         }
         
-        int maxCount = 0;
-        for (int count : lengthMap.values()) {
-            maxCount = Math.max(maxCount, count);
+        int maxLen = 0;
+        for (int value : map.values()) {
+            maxLen = Math.max(maxLen, value);
         }
         
-        return maxCount;
+        return maxLen;
     }
 }
