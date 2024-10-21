@@ -1,19 +1,17 @@
 import java.util.*;
 
 public class Solution {
-    public int[] solution(int[] arr, int[] delete) {
+    public int[] solution (int[] arr, int[] delete) {
         Set<Integer> deleteSet = new HashSet<>();
-        for (int num : delete) {
-            deleteSet.add(num);
+        for (int i = 0; i < delete.length; i++) {
+            deleteSet.add(delete[i]);
         }
         
-        List<Integer> resultList = new ArrayList<>();
-        for (int num : arr) {
-            if (!deleteSet.contains(num)) {
-                resultList.add(num);
-            }
+        ArrayList<Integer> result = new ArrayList<>();
+        for (int i = 0; i < arr.length; i++) {
+            if (!deleteSet.contains(arr[i])) result.add(arr[i]);
         }
-              
-        return resultList.stream().mapToInt(i -> i).toArray();
+        
+        return result.stream().mapToInt(i -> i).toArray();
     }
 }
