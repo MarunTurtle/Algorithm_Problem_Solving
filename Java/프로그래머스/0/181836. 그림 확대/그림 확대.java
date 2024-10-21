@@ -1,27 +1,23 @@
 public class Solution {
-    public String[] solution (String[] picture, int size) {
+    public String[] solution (String[] picture, int k) {
         
-        int len = picture.length;
-        int rowlen = picture[0].length();
-        String[] result = new String[len * size];
+        StringBuilder sb = new StringBuilder();
+        String[] result = new String[picture.length * k];
         int idx = 0;
         
-        // For every row(String) in a picture
-        for (int i = 0; i < len; i++) {
-            StringBuilder sb = new StringBuilder();
-            String[] temp = picture[i].split("");
-            // Add the pixels * k
-            for (int j = 0; j < rowlen; j++) {
-                for (int k = 0; k < size; k++) {
-                    sb.append(temp[j]);
-                }
+        for (String row : picture) {
+            for (int i = 0; i < row.length(); i++) {
+                for (int j = 0; j < k; j++) {
+                    sb.append(row.charAt(i));
+                }                
             }
-            for (int l = 0; l < size; l++) {
-                result[idx++] = sb.toString();     
+            for (int l = 0; l < k; l++) {
+                result[idx++] = sb.toString();
             }
-          
+            sb.setLength(0);
         }
-        // return result
-        return result;
+        
+        return result;     
+        
     }
 }
