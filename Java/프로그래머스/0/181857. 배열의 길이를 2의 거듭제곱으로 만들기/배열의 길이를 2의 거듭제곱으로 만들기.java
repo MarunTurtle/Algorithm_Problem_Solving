@@ -1,6 +1,5 @@
 public class Solution {
     public int[] solution (int[] arr) {
-        
         int len = arr.length;
         int target = 1;
         
@@ -9,10 +8,11 @@ public class Solution {
         }
         
         int[] result = new int[target];
-        for (int i = 0; i < len ; i++) {
-            result[i] = arr[i];
+        int i = 0;
+        for (int num : arr) {
+            result[i++] = num;
         }
-    
-        return result;
+        
+        return result;        
     }
 }
